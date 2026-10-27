@@ -8,6 +8,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
+    /* ==========================================================================
+       RIDEFORM® DESIGN SYSTEM — TOKENS & BASE
+       ========================================================================== */
     :root {
       --paper: #f4f3ef;
       --white: #ffffff;
@@ -22,28 +25,46 @@
       --gutter: clamp(18px, 2.5vw, 52px);
       --colgap: clamp(10px, 1.1vw, 22px);
       --font-sans: "Helvetica Neue", "Inter Tight", Inter, "Suisse Int'l", -apple-system, Arial, sans-serif;
+
+      --display-xxl: clamp(72px, 12.5vw, 220px);
+      --display-xl: clamp(56px, 8.6vw, 158px);
+      --display-lg: clamp(40px, 6vw, 108px);
+      --display-md: clamp(28px, 3.6vw, 64px);
     }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     html, body {
       height: 100%;
-      overflow: hidden;
       font-family: var(--font-sans);
       background: #111111;
       color: var(--white);
+      -webkit-font-smoothing: antialiased;
+      overflow: hidden;
     }
+
+    ::selection {
+      background: var(--coral);
+      color: var(--white);
+    }
+
     .shell {
       display: flex;
       flex-direction: column;
       height: 100vh;
       width: 100vw;
     }
+
+    /* ==========================================================================
+       NAVBAR (SHARED ORIGINAL SHELL)
+       ========================================================================== */
     .nav {
       position: relative;
-      z-index: 90;
+      z-index: 100;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -53,6 +74,7 @@
       color: var(--white);
       flex-shrink: 0;
     }
+
     .nav__logo {
       font-size: 15px;
       font-weight: 800;
@@ -63,11 +85,13 @@
       align-items: center;
       gap: 2px;
     }
+
     .nav__menu {
       display: flex;
       gap: clamp(16px, 2.5vw, 36px);
       list-style: none;
     }
+
     .nav__menu a {
       font-size: 11px;
       font-weight: 600;
@@ -75,18 +99,21 @@
       text-transform: uppercase;
       color: inherit;
       text-decoration: none;
-      opacity: 0.7;
+      opacity: 0.65;
       padding: 6px 0;
       position: relative;
       transition: opacity 0.2s ease, color 0.2s ease;
     }
-    .nav__menu a:hover:not(.is-disabled) {
+
+    .nav__menu a:hover {
       opacity: 1;
     }
+
     .nav__menu a.is-active {
       opacity: 1;
       color: var(--coral);
     }
+
     .nav__menu a.is-active::after {
       content: '';
       position: absolute;
@@ -96,11 +123,7 @@
       height: 2px;
       background: var(--coral);
     }
-    .nav__menu a.is-disabled {
-      opacity: 0.35;
-      cursor: not-allowed;
-      pointer-events: none;
-    }
+
     .nav__cta {
       background: var(--coral);
       color: var(--white);
@@ -113,29 +136,764 @@
       user-select: none;
       cursor: default;
     }
+
     .nav__right {
       display: flex;
       align-items: center;
       gap: 14px;
     }
-    .catalog-content {
+
+    /* ==========================================================================
+       VIEW CONTAINERS
+       ========================================================================== */
+    .catalog-viewport {
       flex: 1;
       position: relative;
       width: 100%;
-      height: 100%;
+      height: calc(100vh - 53px);
+      overflow: hidden;
     }
-    .catalog-iframe {
-      position: absolute;
-      inset: 0;
+
+    /* Overview iframe */
+    #overviewView {
       width: 100%;
       height: 100%;
       border: 0;
       display: block;
     }
+
+    /* Components View Layout */
+    #componentsView {
+      display: none;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #0a1416;
+      position: relative;
+    }
+
+    /* Ambient animated / live background from Overview */
+    .comp-ambient-bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background: #0a1416;
+      background-image:
+        radial-gradient(120% 90% at 65% 30%, rgba(255, 90, 69, 0.07), transparent 70%),
+        radial-gradient(100% 80% at 20% 80%, rgba(8, 40, 44, 0.45), transparent 75%);
+    }
+
+    .comp-gridlines {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: var(--colgap);
+      padding-inline: var(--gutter);
+    }
+
+    .comp-gridlines i {
+      border-left: 1px solid rgba(255, 255, 255, 0.04);
+      height: 100%;
+    }
+
+    .components-layout {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Sticky Left Sidebar */
+    .comp-sidebar {
+      width: 250px;
+      flex-shrink: 0;
+      height: 100%;
+      overflow-y: auto;
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(15, 17, 19, 0.85);
+      backdrop-filter: blur(14px);
+      padding: 28px 20px 48px 24px;
+    }
+
+    .comp-sidebar-group {
+      margin-bottom: 28px;
+    }
+
+    .comp-sidebar-title {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .comp-sidebar-title::before {
+      content: '';
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      background: var(--coral);
+    }
+
+    .comp-sidebar-nav {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .comp-sidebar-nav a {
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.65);
+      text-decoration: none;
+      padding: 7px 10px;
+      border-radius: 3px;
+      display: block;
+      transition: all 0.2s ease;
+    }
+
+    .comp-sidebar-nav a:hover {
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.05);
+      padding-left: 14px;
+    }
+
+    .comp-sidebar-nav a.is-active {
+      color: var(--white);
+      background: rgba(255, 90, 69, 0.15);
+      border-left: 2px solid var(--coral);
+      font-weight: 600;
+    }
+
+    /* Main Content Area */
+    .comp-main {
+      flex: 1;
+      height: 100%;
+      overflow-y: auto;
+      padding: 40px var(--gutter) 100px var(--gutter);
+      scroll-behavior: smooth;
+    }
+
+    .comp-group {
+      margin-bottom: 90px;
+      scroll-margin-top: 30px;
+    }
+
+    .comp-group-header {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      padding-bottom: 18px;
+      margin-bottom: 34px;
+    }
+
+    .comp-group-eyebrow {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 6px;
+    }
+
+    .comp-group-title {
+      font-size: clamp(24px, 2.5vw, 36px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+    }
+
+    .comp-group-desc {
+      font-size: 13px;
+      color: var(--soft-d);
+      margin-top: 6px;
+      max-width: 680px;
+    }
+
+    .comp-card-specimen {
+      background: rgba(21, 21, 21, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 4px;
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+
+    .comp-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 18px;
+      background: rgba(255, 255, 255, 0.02);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .comp-card-name {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .comp-card-meta {
+      font-size: 10px;
+      font-family: monospace;
+      color: var(--coral);
+      background: rgba(255, 90, 69, 0.1);
+      padding: 3px 7px;
+      border-radius: 2px;
+    }
+
+    .comp-card-body {
+      padding: 24px;
+      position: relative;
+    }
+
+    /* ==========================================================================
+       FOUNDATIONS — TYPOGRAPHY (3-PART SPECIMEN ROW)
+       ========================================================================== */
+    .typo-table {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 4px;
+      background: rgba(17, 17, 17, 0.7);
+    }
+
+    .typo-row {
+      display: grid;
+      grid-template-columns: 240px 1fr 220px;
+      align-items: center;
+      gap: 24px;
+      padding: 26px 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .typo-row:last-child {
+      border-bottom: none;
+    }
+
+    .typo-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .typo-role {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.04em;
+    }
+
+    .typo-family-weight {
+      font-size: 11px;
+      color: var(--soft-d);
+    }
+
+    .typo-code {
+      font-size: 10px;
+      font-family: monospace;
+      color: var(--coral);
+      margin-top: 2px;
+    }
+
+    .typo-sample {
+      overflow: hidden;
+      word-break: break-word;
+    }
+
+    .typo-size {
+      font-size: 11px;
+      font-family: monospace;
+      color: rgba(255, 255, 255, 0.7);
+      text-align: right;
+      padding-right: 8px;
+    }
+
+    /* ==========================================================================
+       FOUNDATIONS — COLORS (FUNCTIONAL SWATCHES)
+       ========================================================================== */
+    .color-subgroup-title {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.85);
+      margin: 28px 0 14px 0;
+      padding-left: 2px;
+    }
+
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .color-swatch-card {
+      background: #151515;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .color-swatch-preview {
+      height: 64px;
+      width: 100%;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .color-swatch-info {
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .color-swatch-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .color-swatch-val {
+      font-size: 11px;
+      font-family: monospace;
+      color: var(--coral);
+    }
+
+    .color-swatch-token {
+      font-size: 10px;
+      font-family: monospace;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .color-swatch-use {
+      font-size: 11px;
+      color: var(--soft-d);
+      margin-top: 2px;
+    }
+
+    /* ==========================================================================
+       FOUNDATIONS — BACKGROUNDS (LIVE FULL SPECIMENS)
+       ========================================================================== */
+    .bg-specimen {
+      height: 220px;
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: flex-end;
+      padding: 18px 24px;
+    }
+
+    .bg-specimen-label {
+      position: relative;
+      z-index: 5;
+      background: rgba(17, 17, 17, 0.85);
+      backdrop-filter: blur(8px);
+      padding: 8px 14px;
+      border-radius: 2px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+      border-left: 2px solid var(--coral);
+    }
+
+    /* ==========================================================================
+       SOURCE CLASS REUSE (FOR LIVE SPECIMENS)
+       ========================================================================== */
+    .display {
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.045em;
+      line-height: 0.9;
+    }
+    .display--xxl {
+      font-size: var(--display-xxl);
+      letter-spacing: -0.05em;
+      line-height: 0.85;
+    }
+    .display--xl {
+      font-size: var(--display-xl);
+    }
+    .display--lg {
+      font-size: var(--display-lg);
+    }
+    .display--md {
+      font-size: var(--display-md);
+    }
+    .micro {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .micro--dim {
+      opacity: 0.55;
+    }
+    .body-s {
+      font-size: 12px;
+      line-height: 1.6;
+    }
+    .body-m {
+      font-size: clamp(13px, 1vw, 16px);
+      line-height: 1.65;
+    }
+    .rule {
+      height: 1px;
+      background: var(--rule-l);
+      border: 0;
+      transform-origin: left center;
+    }
+    .rule--dark {
+      background: var(--rule-d);
+    }
+    .rule--coral {
+      background: var(--coral);
+    }
+    .idx {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--coral);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--ink);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 12px 18px;
+      border-radius: 2px;
+      transition: background 0.25s ease;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn:hover {
+      background: var(--coral);
+    }
+    .btn--coral {
+      background: var(--coral);
+    }
+    .btn--coral:hover {
+      background: var(--ink);
+    }
+    .btn .sq {
+      width: 8px;
+      height: 8px;
+      background: var(--coral);
+      flex: none;
+    }
+    .btn--coral .sq {
+      background: var(--white);
+    }
+    .dot-sq {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      background: var(--coral);
+      flex: none;
+    }
+
+    /* Hero CTAs */
+    .hero__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 14px 22px;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+    .hero__cta--primary {
+      background: var(--coral);
+      color: var(--white);
+    }
+    .hero__cta--primary:hover {
+      background: var(--white);
+      color: var(--ink);
+    }
+    .hero__cta--secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .hero__cta--secondary:hover {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* Facts */
+    .fact {
+      border-top: 1px solid var(--rule-l);
+      padding-top: 14px;
+    }
+    .fact--dark {
+      border-top-color: var(--rule-d);
+    }
+    .fact__num {
+      font-size: clamp(44px, 5.5vw, 104px);
+      font-weight: 800;
+      letter-spacing: -0.045em;
+      line-height: 0.95;
+    }
+    .fact__num sup {
+      font-size: 0.42em;
+      color: var(--coral);
+      font-weight: 700;
+    }
+    .fact__label {
+      margin-top: 10px;
+      max-width: 220px;
+    }
+
+    /* Metric */
+    .metric__num {
+      font-size: clamp(48px, 6vw, 112px);
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      line-height: 0.95;
+    }
+    .metric__num .sfx {
+      color: var(--coral);
+    }
+
+    /* Process Step */
+    .step {
+      width: 100%;
+      max-width: 440px;
+      display: flex;
+      flex-direction: column;
+    }
+    .step__num {
+      font-size: clamp(70px, 9vw, 140px);
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      line-height: 0.85;
+      color: rgba(255, 255, 255, 0.94);
+    }
+    .step__rule {
+      height: 2px;
+      background: var(--coral);
+      margin: 18px 0 14px;
+      width: 100%;
+    }
+    .step h3 {
+      font-size: clamp(18px, 1.7vw, 28px);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+    .step p {
+      color: var(--soft-d);
+      max-width: 360px;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    /* Ready Card */
+    .ready-card {
+      width: 100%;
+      max-width: 400px;
+      background: var(--coral);
+      color: var(--white);
+      padding: clamp(24px, 2.4vw, 40px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 380px;
+      border-radius: 2px;
+    }
+    .ready-card h3 {
+      font-size: clamp(26px, 2.4vw, 40px);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.03em;
+      line-height: 0.95;
+    }
+    .ready-card ul {
+      list-style: none;
+      margin-top: 24px;
+      display: grid;
+      gap: 12px;
+      font-size: 12px;
+    }
+    .ready-card li {
+      display: flex;
+      gap: 10px;
+      align-items: baseline;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+      padding-bottom: 10px;
+    }
+    .ready-card li .dot-sq {
+      background: #fff;
+    }
+    .ready-card__foot {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 26px;
+    }
+    .ready-card__foot .t {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      line-height: 1.5;
+    }
+    .ready-card__foot .go {
+      margin-left: auto;
+      width: 40px;
+      height: 40px;
+      background: var(--ink);
+      color: var(--white);
+      display: grid;
+      place-items: center;
+      border-radius: 2px;
+    }
+
+    /* Package Tier Card */
+    .pkg {
+      background: var(--paper);
+      color: var(--ink);
+      padding: 24px;
+      border-top: 1px solid var(--ink);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 380px;
+      border-radius: 2px;
+    }
+    .pkg__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .pkg__price {
+      font-size: clamp(32px, 3.2vw, 54px);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+    .pkg__desc {
+      color: var(--soft);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .pkg ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin-block: 8px 12px;
+    }
+    .pkg li {
+      display: flex;
+      gap: 10px;
+      align-items: baseline;
+      font-size: 12px;
+      border-bottom: 1px solid rgba(17, 17, 17, 0.12);
+      padding-bottom: 8px;
+    }
+
+    /* Testimonial Block */
+    .tstm {
+      display: grid;
+      gap: 14px;
+      align-content: start;
+      max-width: 440px;
+      background: var(--white);
+      color: var(--ink);
+      padding: 24px;
+      border-radius: 2px;
+    }
+    .tstm .rule--coral {
+      width: 42px;
+      height: 2px;
+    }
+    .tstm__head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .tstm__head .who b {
+      display: block;
+      font-size: 12px;
+    }
+    .tstm__head .who span {
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--soft);
+    }
+    .tstm blockquote {
+      font-size: clamp(14px, 1.15vw, 17px);
+      line-height: 1.55;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+    .tstm .brand {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 0.45;
+    }
+
+    /* Floating Bar */
+    .case-bar {
+      display: inline-flex;
+      align-items: center;
+      background: var(--ink);
+      color: var(--white);
+      border-radius: 2px;
+      overflow: hidden;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .case-bar .t {
+      padding: 10px 14px;
+    }
+    .case-bar .sq {
+      width: 32px;
+      height: 32px;
+      background: var(--coral);
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+    }
   </style>
 </head>
 <body>
   <div class="shell">
+    <!-- REUSED SOURCE NAVBAR -->
     <header class="nav" id="nav">
       <a class="nav__logo" href="#overview">
         RIDEFORM
@@ -144,8 +902,8 @@
 
       <nav>
         <ul class="nav__menu">
-          <li><a href="#overview" id="navOverview" class="is-active">Overview</a></li>
-          <li><a href="#components" id="navComponents" class="is-disabled" title="Disponível após aprovação do Overview">Components</a></li>
+          <li><a href="#overview" id="navOverview">Overview</a></li>
+          <li><a href="#components" id="navComponents">Components</a></li>
         </ul>
       </nav>
 
@@ -154,28 +912,842 @@
       </div>
     </header>
 
-    <main class="catalog-content">
+    <!-- CATALOG VIEWPORT -->
+    <main class="catalog-viewport">
+      <!-- 1. OVERVIEW VIEW -->
       <iframe
-        id="overviewFrame"
-        class="catalog-iframe"
+        id="overviewView"
         src="assets/overview/index.html"
         title="Rideform Design System Overview"
       ></iframe>
+
+      <!-- 2. COMPONENTS VIEW -->
+      <div id="componentsView">
+        <div class="comp-ambient-bg"></div>
+        <div class="comp-gridlines" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+
+        <div class="components-layout">
+          <!-- STICKY LEFT SIDEBAR (GROUP NAMES ONLY) -->
+          <aside class="comp-sidebar">
+            <div class="comp-sidebar-group">
+              <div class="comp-sidebar-title">Foundations</div>
+              <ul class="comp-sidebar-nav">
+                <li><a href="#foundations-typography">Typography</a></li>
+                <li><a href="#foundations-colors">Colors</a></li>
+                <li><a href="#foundations-backgrounds">Backgrounds</a></li>
+                <li><a href="#foundations-surfaces">Surfaces</a></li>
+                <li><a href="#foundations-icons">Icons & Indicators</a></li>
+              </ul>
+            </div>
+
+            <div class="comp-sidebar-group">
+              <div class="comp-sidebar-title">Components</div>
+              <ul class="comp-sidebar-nav">
+                <li><a href="#components-buttons">Buttons & CTAs</a></li>
+                <li><a href="#components-navigation">Navigation</a></li>
+                <li><a href="#components-cards">Cards & Containers</a></li>
+                <li><a href="#components-metrics">Metrics & Facts</a></li>
+                <li><a href="#components-process">Process & Steps</a></li>
+                <li><a href="#components-testimonials">Testimonials</a></li>
+              </ul>
+            </div>
+          </aside>
+
+          <!-- MAIN SPECIMEN STREAM -->
+          <div class="comp-main">
+
+            <!-- ============================================================
+                 FOUNDATIONS: TYPOGRAPHY
+                 ============================================================ -->
+            <section class="comp-group" id="foundations-typography">
+              <header class="comp-group-header">
+                <p class="comp-group-eyebrow">Foundations · 01</p>
+                <h2 class="comp-group-title">Typography</h2>
+                <p class="comp-group-desc">
+                  Type hierarchy based on swiss grotesque sans (Helvetica Neue / Inter), tight negative letter-spacing for large displays, and expanded tracking for uppercase micro tokens.
+                </p>
+              </header>
+
+              <div class="typo-table">
+                <!-- Display XXL -->
+                <div class="typo-row">
+                  <div class="typo-meta">
+                    <span class="typo-role">Display XXL</span>
+                    <span class="typo-family-weight">var(--font-sans) · 800</span>
+                    <code class="typo-code">.display--xxl</code>
+                  </div>
+                  <div class="typo-sample">
+                    <div class="display display--xxl">RIDEFORM®</div>
+                  </div>
+                  <div class="typo-size">clamp(72px, 12.5vw, 220px)</div>
+                </div>
+
+                <!-- Display XL -->
+                <div class="typo-row">
+                  <div class="typo-meta">
+                    <span class="typo-role">Display XL</span>
+                    <span class="typo-family-weight">var(--font-sans) · 800</span>
+                    <code class="typo-code">.display--xl</code>
+                  </div>
+                  <div class="typo-sample">
+                    <div class="display display--xl">ENGINEERED AT SPEED.</div>
+                  </div>
+                  <div class="typo-size">clamp(56px, 8.6vw, 158px)</div>
+                </div>
+
+                <!-- Display LG -->
+                <div class="typo-row">
+                  <div class="typo-meta">
+                    <span class="typo-role">Display LG</span>
+                    <span class="typo-family-weight">var(--font-sans) · 800</span>
+                    <code class="typo-code">.display--lg</code>
+                  </div>
+                  <div class="typo-sample">
+                    <div class="display display--lg">CARBON COMPOSITE SHELL</div>
+                  </div>
+                  <div class="typo-size">clamp(40px, 6vw, 108px)</div>
+                </div>
+
+                <!-- Display MD -->
+                <div class="typo-row">
+                  <div class="typo-meta">
+                    <span class="typo-role">Display MD</span>
+                    <span class="typo-family-weight">var(--font-sans) · 800</span>
+                    <code class="typo-code">.display--md</code>
+                  </div>
+                  <div class="typo-sample">
+                    <div class="display display--md">IMPACT ABSORPTION SYSTEM</div>
+                  </div>
+                  <div class="typo-size">clamp(28px, 3.6vw, 64px)</div>
+                </div>
+
+                <!-- Intro Lede -->
+                <div class="typo-row">
+                  <div class="typo-meta">
+                    <span class="typo-role">Editorial Lede</span>
+                    <span class="typo-family-weight">var(--font-sans) · 700</span>
+                    <code class="typo-code">.intro__lede</code>
+                  </div>
+                  <div class="typo-sample">
+                    <div style="font-size:clamp(24px, 3vw, 48px); font-weight:700; line-height:1.1; letter-spacing:-0.03em;">
+                      A curated system. We shape tokens that endure <span style="color:var(--soft-d);">without compromise.</span>
+                    </div>
+                  </div>
+                  <div class="typo-size">clamp(26px, 3.15vw, 56px)</div>
+                </div>
+
+                <!-- Heading 3 -->
+                <div class="typo-row">
+                  <div class="typo-meta">
+                    <span class="typo-role">Heading 3</span>
+                    <span class="typo-family-weight">var(--font-sans) · 800</span>
+                    <code class="typo-code">.service-row h3 / .step h3</code>
+                  </div>
+                  <div class="typo-sample">
+                    <h3 style="font-size:clamp(20px, 2.4vw, 38px); font-weight:800; text-transform:uppercase; letter-spacing:-0.02em;">
+                      MULTI-DENSITY IMPACT LINER
+                    </h3>
+                  </div>
+                  <div class="typo-size">clamp(22px, 2.8vw, 46px)</div>
+                </div>
+
+                <!-- Body M -->
+                <div class="typo-row">
+                  <div class="typo-meta">
+                    <span class="typo-role">Body M</span>
+                    <span class="typo-family-weight">var(--font-sans) · 400</span>
+                    <code class="typo-code">.body-m</code>
+                  </div>
+                  <div class="typo-sample">
+                    <p class="body-m" style="color: rgba(255,255,255,0.85); max-width: 580px;">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio praesent libero sed cursus ante dapibus diam. Sed nisi nulla quis sem at nibh elementum imperdiet.
+                    </p>
+                  </div>
+                  <div class="typo-size">clamp(13px, 1vw, 16px)</div>
+                </div>
+
+                <!-- Body S -->
+                <div class="typo-row">
+                  <div class="typo-meta">
+                    <span class="typo-role">Body S</span>
+                    <span class="typo-family-weight">var(--font-sans) · 400</span>
+                    <code class="typo-code">.body-s</code>
+                  </div>
+                  <div class="typo-sample">
+                    <p class="body-s" style="color: var(--soft-d); max-width: 520px;">
+                      Precision air channels engineered per shell size to ensure constant laminar airflow at highway velocities.
+                    </p>
+                  </div>
+                  <div class="typo-size">12px</div>
+                </div>
+
+                <!-- Micro / Eyebrow -->
+                <div class="typo-row">
+                  <div class="typo-meta">
+                    <span class="typo-role">Micro / Eyebrow</span>
+                    <span class="typo-family-weight">var(--font-sans) · 500</span>
+                    <code class="typo-code">.micro</code>
+                  </div>
+                  <div class="typo-sample">
+                    <span class="micro" style="color: var(--coral);">ECE 22.06 CERTIFIED · DOT APPROVED · 2026 COLLECTION</span>
+                  </div>
+                  <div class="typo-size">10px</div>
+                </div>
+              </div>
+            </section>
+
+
+            <!-- ============================================================
+                 FOUNDATIONS: COLORS
+                 ============================================================ -->
+            <section class="comp-group" id="foundations-colors">
+              <header class="comp-group-header">
+                <p class="comp-group-eyebrow">Foundations · 02</p>
+                <h2 class="comp-group-title">Colors</h2>
+                <p class="comp-group-desc">
+                  Functional palette structured around paper neutral light backgrounds, deep basalt dark panels, and a high-visibility coral accent.
+                </p>
+              </header>
+
+              <!-- Brand & Accent -->
+              <h3 class="color-subgroup-title">Brand & Accent</h3>
+              <div class="color-grid">
+                <div class="color-swatch-card">
+                  <div class="color-swatch-preview" style="background: #ff5a45;"></div>
+                  <div class="color-swatch-info">
+                    <span class="color-swatch-label">Primary Coral Accent</span>
+                    <span class="color-swatch-val">#ff5a45</span>
+                    <span class="color-swatch-token">var(--coral)</span>
+                    <span class="color-swatch-use">CTAs, selection background, active indicators, step underlines</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Surfaces -->
+              <h3 class="color-subgroup-title">Surfaces</h3>
+              <div class="color-grid">
+                <div class="color-swatch-card">
+                  <div class="color-swatch-preview" style="background: #f4f3ef;"></div>
+                  <div class="color-swatch-info">
+                    <span class="color-swatch-label">Base Paper Surface</span>
+                    <span class="color-swatch-val">#f4f3ef</span>
+                    <span class="color-swatch-token">var(--paper)</span>
+                    <span class="color-swatch-use">Main website ground, intro section, packages background</span>
+                  </div>
+                </div>
+
+                <div class="color-swatch-card">
+                  <div class="color-swatch-preview" style="background: #ffffff; border: 1px solid #e0e0e0;"></div>
+                  <div class="color-swatch-info">
+                    <span class="color-swatch-label">Elevated Light Surface</span>
+                    <span class="color-swatch-val">#ffffff</span>
+                    <span class="color-swatch-token">var(--white)</span>
+                    <span class="color-swatch-use">Cases title panels, testimonial container cards</span>
+                  </div>
+                </div>
+
+                <div class="color-swatch-card">
+                  <div class="color-swatch-preview" style="background: #151515;"></div>
+                  <div class="color-swatch-info">
+                    <span class="color-swatch-label">Dark Neutral Panel</span>
+                    <span class="color-swatch-val">#151515</span>
+                    <span class="color-swatch-token">var(--panel)</span>
+                    <span class="color-swatch-use">Services section, result panels, footer monolithic block</span>
+                  </div>
+                </div>
+
+                <div class="color-swatch-card">
+                  <div class="color-swatch-preview" style="background: #1b1b1b;"></div>
+                  <div class="color-swatch-info">
+                    <span class="color-swatch-label">Elevated Dark Surface</span>
+                    <span class="color-swatch-val">#1b1b1b</span>
+                    <span class="color-swatch-token">var(--panel-2)</span>
+                    <span class="color-swatch-use">Horizontal process track ground, secondary dark containers</span>
+                  </div>
+                </div>
+
+                <div class="color-swatch-card">
+                  <div class="color-swatch-preview" style="background: #0a1416;"></div>
+                  <div class="color-swatch-info">
+                    <span class="color-swatch-label">Atmospheric Deep Teal</span>
+                    <span class="color-swatch-val">#0a1416</span>
+                    <span class="color-swatch-token">cases__bg</span>
+                    <span class="color-swatch-use">Immersive full-height stage backgrounds, architectural grid ground</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Text & Icons -->
+              <h3 class="color-subgroup-title">Text & Icons</h3>
+              <div class="color-grid">
+                <div class="color-swatch-card">
+                  <div class="color-swatch-preview" style="background: #111111;"></div>
+                  <div class="color-swatch-info">
+                    <span class="color-swatch-label">Primary High-Contrast Ink</span>
+                    <span class="color-swatch-val">#111111</span>
+                    <span class="color-swatch-token">var(--ink)</span>
+                    <span class="color-swatch-use">Headings and body text on paper and white surfaces</span>
+                  </div>
+                </div>
+
+                <div class="color-swatch-card">
+                  <div class="color-swatch-preview" style="background: #ffffff;"></div>
+                  <div class="color-swatch-info">
+                    <span class="color-swatch-label">Primary Inverted White</span>
+                    <span class="color-swatch-val">#ffffff</span>
+                    <span class="color-swatch-token">var(--white)</span>
+                    <span class="color-swatch-use">Headings and body text on dark panels and coral containers</span>
+                  </div>
+                </div>
+
+                <div class="color-swatch-card">
+                  <div class="color-swatch-preview" style="background: #f4f3ef; color: rgba(17,17,17,0.38); font-size: 11px; font-weight:700;">
+                    Muted Ink
+                  </div>
+                  <div class="color-swatch-info">
+                    <span class="color-swatch-label">Muted Editorial Text</span>
+                    <span class="color-swatch-val">rgba(17, 17, 17, 0.38)</span>
+                    <span class="color-swatch-token">var(--soft)</span>
+                    <span class="color-swatch-use">Subtitles, secondary labels, and metadata on light grounds</span>
+                  </div>
+                </div>
+
+                <div class="color-swatch-card">
+                  <div class="color-swatch-preview" style="background: #151515; color: rgba(255,255,255,0.45); font-size: 11px; font-weight:700;">
+                    Muted White
+                  </div>
+                  <div class="color-swatch-info">
+                    <span class="color-swatch-label">Muted Inverted Text</span>
+                    <span class="color-swatch-val">rgba(255, 255, 255, 0.45)</span>
+                    <span class="color-swatch-token">var(--soft-d)</span>
+                    <span class="color-swatch-use">Secondary text and step descriptions on dark surfaces</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Dividers & Borders -->
+              <h3 class="color-subgroup-title">Dividers & Borders</h3>
+              <div class="color-grid">
+                <div class="color-swatch-card">
+                  <div class="color-swatch-preview" style="background: #f4f3ef; display:flex; align-items:center; justify-content:center;">
+                    <div style="width:80%; height:1px; background:rgba(17,17,17,0.18);"></div>
+                  </div>
+                  <div class="color-swatch-info">
+                    <span class="color-swatch-label">Light Surface Hairline</span>
+                    <span class="color-swatch-val">rgba(17, 17, 17, 0.18)</span>
+                    <span class="color-swatch-token">var(--rule-l)</span>
+                    <span class="color-swatch-use">Horizontal division rules across paper and white sections</span>
+                  </div>
+                </div>
+
+                <div class="color-swatch-card">
+                  <div class="color-swatch-preview" style="background: #151515; display:flex; align-items:center; justify-content:center;">
+                    <div style="width:80%; height:1px; background:rgba(255,255,255,0.16);"></div>
+                  </div>
+                  <div class="color-swatch-info">
+                    <span class="color-swatch-label">Dark Surface Hairline</span>
+                    <span class="color-swatch-val">rgba(255, 255, 255, 0.16)</span>
+                    <span class="color-swatch-token">var(--rule-d)</span>
+                    <span class="color-swatch-use">Division lines on service rows, process cards, and dark panels</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Interactive States -->
+              <h3 class="color-subgroup-title">Interactive States Family</h3>
+              <div class="color-grid">
+                <div class="color-swatch-card">
+                  <div class="color-swatch-preview" style="background:#151515; gap:12px; display:flex; align-items:center; justify-content:center;">
+                    <span class="btn" style="pointer-events:none;">Default</span>
+                    <span class="btn" style="background:var(--coral); pointer-events:none;">Hover</span>
+                  </div>
+                  <div class="color-swatch-info">
+                    <span class="color-swatch-label">Action State Family</span>
+                    <span class="color-swatch-val">Default: #111111 | Hover: #ff5a45</span>
+                    <span class="color-swatch-token">.btn:hover</span>
+                    <span class="color-swatch-use">Standard button background transition on pointer interaction</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+
+            <!-- ============================================================
+                 FOUNDATIONS: BACKGROUNDS
+                 ============================================================ -->
+            <section class="comp-group" id="foundations-backgrounds">
+              <header class="comp-group-header">
+                <p class="comp-group-eyebrow">Foundations · 03</p>
+                <h2 class="comp-group-title">Backgrounds</h2>
+                <p class="comp-group-desc">
+                  Every distinct observed background shown live with its real markup, gradients, overlays, layers, and composition.
+                </p>
+              </header>
+
+              <!-- Specimen 1: Atmospheric Hero Ground -->
+              <div class="bg-specimen" style="background: #120d07; background-image: linear-gradient(180deg, rgba(18, 10, 4, 0.42) 0%, rgba(18, 10, 4, 0) 30%), linear-gradient(0deg, rgba(24, 12, 4, 0.5) 0%, rgba(24, 12, 4, 0) 38%), radial-gradient(120% 90% at 62% 40%, rgba(255, 122, 40, 0.1), rgba(30, 12, 2, 0.32) 78%);">
+                <div class="bg-specimen-label">Hero Atmospheric Ground · #120d07 with Sepia & Radial Vignette</div>
+              </div>
+
+              <!-- Specimen 2: Architectural 12-Column Grid Ground -->
+              <div class="bg-specimen" style="background: #0a1416;">
+                <div style="position:absolute; inset:0; display:grid; grid-template-columns:repeat(12, 1fr); padding:0 24px; gap:16px;">
+                  <i style="border-left:1px solid rgba(255,255,255,0.06); height:100%;"></i>
+                  <i style="border-left:1px solid rgba(255,255,255,0.06); height:100%;"></i>
+                  <i style="border-left:1px solid rgba(255,255,255,0.06); height:100%;"></i>
+                  <i style="border-left:1px solid rgba(255,255,255,0.06); height:100%;"></i>
+                  <i style="border-left:1px solid rgba(255,255,255,0.06); height:100%;"></i>
+                  <i style="border-left:1px solid rgba(255,255,255,0.06); height:100%;"></i>
+                  <i style="border-left:1px solid rgba(255,255,255,0.06); height:100%;"></i>
+                  <i style="border-left:1px solid rgba(255,255,255,0.06); height:100%;"></i>
+                  <i style="border-left:1px solid rgba(255,255,255,0.06); height:100%;"></i>
+                  <i style="border-left:1px solid rgba(255,255,255,0.06); height:100%;"></i>
+                  <i style="border-left:1px solid rgba(255,255,255,0.06); height:100%;"></i>
+                  <i style="border-left:1px solid rgba(255,255,255,0.06); height:100%;"></i>
+                </div>
+                <div class="bg-specimen-label">12-Column Grid Ground · #0a1416 with Vertical Hairlines</div>
+              </div>
+
+              <!-- Specimen 3: Paper Ground -->
+              <div class="bg-specimen" style="background: var(--paper); border-color: rgba(17,17,17,0.1);">
+                <div style="position:absolute; inset:auto 24px 70px 24px; height:1px; background:var(--rule-l);"></div>
+                <div class="bg-specimen-label" style="background:#111; color:#fff;">Minimalist Paper Ground · #f4f3ef with Hairline --rule-l</div>
+              </div>
+
+              <!-- Specimen 4: Dark Monolith Panel -->
+              <div class="bg-specimen" style="background: var(--panel);">
+                <div style="position:absolute; inset:auto 24px 70px 24px; height:1px; background:var(--rule-d);"></div>
+                <div class="bg-specimen-label">Dark Monolith Panel · #151515 with Hairline --rule-d</div>
+              </div>
+
+              <!-- Specimen 5: Coral Accent Container -->
+              <div class="bg-specimen" style="background: var(--coral);">
+                <div class="bg-specimen-label" style="background:#fff; color:#111; border-left-color:#111;">High-Energy Coral Ground · #ff5a45</div>
+              </div>
+            </section>
+
+
+            <!-- ============================================================
+                 FOUNDATIONS: SURFACES
+                 ============================================================ -->
+            <section class="comp-group" id="foundations-surfaces">
+              <header class="comp-group-header">
+                <p class="comp-group-eyebrow">Foundations · 04</p>
+                <h2 class="comp-group-title">Surfaces</h2>
+                <p class="comp-group-desc">
+                  Clearly recurring containers, cards, and pills shown on their real underlying surfaces with preserved masks, borders, and shadows.
+                </p>
+              </header>
+
+              <!-- Floating Bar Surface -->
+              <div class="comp-card-specimen">
+                <div class="comp-card-header">
+                  <span class="comp-card-name">Floating Dark Badge / Action Pill</span>
+                  <code class="comp-card-meta">.case-bar / .float-badge</code>
+                </div>
+                <div class="comp-card-body" style="background:#0a1416; display:flex; gap:20px; align-items:center;">
+                  <div class="case-bar">
+                    <span class="t">SPECIFICATION DETAIL</span>
+                    <span class="sq">→</span>
+                  </div>
+                  <div class="case-bar">
+                    <span class="t">HELMET COLLECTION 2026</span>
+                    <span class="sq">↗</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Monolith Service Row Surface -->
+              <div class="comp-card-specimen">
+                <div class="comp-card-header">
+                  <span class="comp-card-name">Monolith Row Surface</span>
+                  <code class="comp-card-meta">.service-row</code>
+                </div>
+                <div class="comp-card-body" style="background:var(--panel);">
+                  <div style="display:flex; justify-content:space-between; align-items:baseline; padding:18px 0; border-bottom:1px solid var(--rule-d);">
+                    <div style="display:flex; gap:30px; align-items:baseline;">
+                      <span class="idx">01</span>
+                      <h3 style="font-size:24px; font-weight:800; text-transform:uppercase;">MULTI-DENSITY EPS</h3>
+                    </div>
+                    <span class="body-s" style="color:var(--soft-d);">Energy dispersal · ECE 22.06</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+
+            <!-- ============================================================
+                 FOUNDATIONS: ICONS & INDICATORS
+                 ============================================================ -->
+            <section class="comp-group" id="foundations-icons">
+              <header class="comp-group-header">
+                <p class="comp-group-eyebrow">Foundations · 05</p>
+                <h2 class="comp-group-title">Icons & Indicators</h2>
+                <p class="comp-group-desc">
+                  Geometric visual indicators, indexes, square dots, and directional glyphs.
+                </p>
+              </header>
+
+              <div class="comp-card-specimen">
+                <div class="comp-card-body" style="background:#151515;">
+                  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(130px, 1fr)); gap:20px; text-align:center;">
+                    <!-- Square Dot -->
+                    <div style="padding:16px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:3px;">
+                      <div style="height:36px; display:grid; place-items:center;">
+                        <span class="dot-sq"></span>
+                      </div>
+                      <code style="font-size:10px; color:var(--coral);">.dot-sq</code>
+                    </div>
+
+                    <!-- Button Indicator -->
+                    <div style="padding:16px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:3px;">
+                      <div style="height:36px; display:grid; place-items:center;">
+                        <span style="width:8px; height:8px; background:var(--coral); display:block;"></span>
+                      </div>
+                      <code style="font-size:10px; color:var(--coral);">.btn .sq</code>
+                    </div>
+
+                    <!-- Index Number -->
+                    <div style="padding:16px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:3px;">
+                      <div style="height:36px; display:grid; place-items:center;">
+                        <span class="idx" style="font-size:14px;">01 ·</span>
+                      </div>
+                      <code style="font-size:10px; color:var(--coral);">.idx</code>
+                    </div>
+
+                    <!-- Right Arrow -->
+                    <div style="padding:16px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:3px;">
+                      <div style="height:36px; display:grid; place-items:center; font-size:16px; color:var(--coral);">
+                        →
+                      </div>
+                      <code style="font-size:10px; color:var(--coral);">Arrow Right</code>
+                    </div>
+
+                    <!-- Diagonal Arrow -->
+                    <div style="padding:16px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:3px;">
+                      <div style="height:36px; display:grid; place-items:center; font-size:16px; color:var(--coral);">
+                        ↗
+                      </div>
+                      <code style="font-size:10px; color:var(--coral);">External ↗</code>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+
+            <!-- ============================================================
+                 COMPONENTS: BUTTONS & CTAS
+                 ============================================================ -->
+            <section class="comp-group" id="components-buttons">
+              <header class="comp-group-header">
+                <p class="comp-group-eyebrow">Components · 01</p>
+                <h2 class="comp-group-title">Buttons & CTAs</h2>
+                <p class="comp-group-desc">
+                  Interactive action components with crisp borders, uppercase typography, and solid square status tags.
+                </p>
+              </header>
+
+              <!-- Standard Buttons -->
+              <div class="comp-card-specimen">
+                <div class="comp-card-header">
+                  <span class="comp-card-name">Standard Action Buttons</span>
+                  <code class="comp-card-meta">.btn / .btn--coral</code>
+                </div>
+                <div class="comp-card-body" style="background:#151515; display:flex; flex-wrap:wrap; gap:16px; align-items:center;">
+                  <button class="btn">
+                    <span class="sq"></span>
+                    <span>PRIMARY ACTION</span>
+                  </button>
+
+                  <button class="btn btn--coral">
+                    <span class="sq"></span>
+                    <span>CORAL ACCENT</span>
+                  </button>
+
+                  <button class="nav__cta">
+                    <span>NAV PILL CTA</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Hero CTAs -->
+              <div class="comp-card-specimen">
+                <div class="comp-card-header">
+                  <span class="comp-card-name">Hero Stage CTAs</span>
+                  <code class="comp-card-meta">.hero__cta--primary / .hero__cta--secondary</code>
+                </div>
+                <div class="comp-card-body" style="background:#120d07; display:flex; flex-wrap:wrap; gap:16px; align-items:center;">
+                  <a class="hero__cta hero__cta--primary" href="#components-buttons">
+                    <span>Explore tokens</span>
+                    <span aria-hidden="true">→</span>
+                  </a>
+
+                  <a class="hero__cta hero__cta--secondary" href="#components-buttons">
+                    <span>View components</span>
+                  </a>
+                </div>
+              </div>
+            </section>
+
+
+            <!-- ============================================================
+                 COMPONENTS: NAVIGATION
+                 ============================================================ -->
+            <section class="comp-group" id="components-navigation">
+              <header class="comp-group-header">
+                <p class="comp-group-eyebrow">Components · 02</p>
+                <h2 class="comp-group-title">Navigation</h2>
+                <p class="comp-group-desc">
+                  Global navigation header featuring the uppercase wordmark logo, uppercase tracked navigation links, and compact action badge.
+                </p>
+              </header>
+
+              <div class="comp-card-specimen">
+                <div class="comp-card-header">
+                  <span class="comp-card-name">Global Navbar Specimen</span>
+                  <code class="comp-card-meta">.nav</code>
+                </div>
+                <div class="comp-card-body" style="padding:0; background:#111111;">
+                  <div class="nav" style="position:static;">
+                    <a class="nav__logo" href="#">
+                      RIDEFORM<sup style="font-size:0.55em">®</sup>
+                    </a>
+                    <ul class="nav__menu" style="display:flex;">
+                      <li><a href="#" class="is-active">Helmets</a></li>
+                      <li><a href="#">Technology</a></li>
+                      <li><a href="#">Rider guide</a></li>
+                      <li><a href="#">FAQ</a></li>
+                    </ul>
+                    <div class="nav__right">
+                      <span class="nav__cta">Shop 2026</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+
+            <!-- ============================================================
+                 COMPONENTS: CARDS & CONTAINERS
+                 ============================================================ -->
+            <section class="comp-group" id="components-cards">
+              <header class="comp-group-header">
+                <p class="comp-group-eyebrow">Components · 03</p>
+                <h2 class="comp-group-title">Cards & Containers</h2>
+                <p class="comp-group-desc">
+                  Production cards for pricing tiers, interactive workflows, and specifier tags.
+                </p>
+              </header>
+
+              <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(360px, 1fr)); gap:24px; align-items:start;">
+                <!-- Package Card -->
+                <div class="pkg">
+                  <div class="pkg__top">
+                    <span class="idx">TIER · 01</span>
+                    <span class="micro" style="font-weight:700;">STREET SERIE</span>
+                  </div>
+                  <div class="pkg__price">$490</div>
+                  <p class="pkg__desc">Carbon composite helmet calibrated for urban daily commuting and fast weekend touring.</p>
+                  <ul>
+                    <li><span class="dot-sq"></span><span>ECE 22.06 certified impact shell</span></li>
+                    <li><span class="dot-sq"></span><span>Pinlock 120 MaxVision visor installed</span></li>
+                    <li><span class="dot-sq"></span><span>Emergency quick-release cheek pads</span></li>
+                  </ul>
+                  <button class="btn" style="width:100%; justify-content:center;">
+                    <span class="sq"></span><span>SELECT SPECIFICATION</span>
+                  </button>
+                </div>
+
+                <!-- Ready Card -->
+                <div class="ready-card">
+                  <div>
+                    <span class="micro" style="opacity:0.9;">WORKSHOP READY</span>
+                    <h3 style="margin-top:12px;">CUSTOM FIT SESSION</h3>
+                    <ul>
+                      <li><span class="dot-sq"></span><span>3D head scan & pressure analysis</span></li>
+                      <li><span class="dot-sq"></span><span>Custom cheek & crown pad sizing</span></li>
+                      <li><span class="dot-sq"></span><span>Direct aerotunnel wind balancing</span></li>
+                    </ul>
+                  </div>
+                  <div class="ready-card__foot">
+                    <span class="t">RESERVE FIT<br>1-ON-1 WITH RACING TECH</span>
+                    <div class="go">→</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+
+            <!-- ============================================================
+                 COMPONENTS: METRICS & FACTS
+                 ============================================================ -->
+            <section class="comp-group" id="components-metrics">
+              <header class="comp-group-header">
+                <p class="comp-group-eyebrow">Components · 04</p>
+                <h2 class="comp-group-title">Metrics & Facts</h2>
+                <p class="comp-group-desc">
+                  High-impact statistical callouts with hairline dividers, oversized tabular numerals, and coral unit superscripts.
+                </p>
+              </header>
+
+              <div class="comp-card-specimen">
+                <div class="comp-card-header">
+                  <span class="comp-card-name">Facts Grid Specimen</span>
+                  <code class="comp-card-meta">.fact / .fact__num</code>
+                </div>
+                <div class="comp-card-body" style="background:#151515;">
+                  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:24px;">
+                    <div class="fact fact--dark">
+                      <div class="fact__num">12<sup>CH</sup></div>
+                      <p class="fact__label body-s" style="color:var(--soft-d);">Active aerodynamic channels per carbon shell.</p>
+                    </div>
+
+                    <div class="fact fact--dark">
+                      <div class="fact__num">1.3<sup>KG</sup></div>
+                      <p class="fact__label body-s" style="color:var(--soft-d);">Ultralight weight with full ECE 22.06 rating.</p>
+                    </div>
+
+                    <div class="fact fact--dark">
+                      <div class="fact__num">2.1<sup>MM</sup></div>
+                      <p class="fact__label body-s" style="color:var(--soft-d);">Optically correct Class 1 polycarbonate visor.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+
+            <!-- ============================================================
+                 COMPONENTS: PROCESS & STEPS
+                 ============================================================ -->
+            <section class="comp-group" id="components-process">
+              <header class="comp-group-header">
+                <p class="comp-group-eyebrow">Components · 05</p>
+                <h2 class="comp-group-title">Process & Steps</h2>
+                <p class="comp-group-desc">
+                  Sequential workflow unit with oversized numerals, coral divider line, and concise operational instructions.
+                </p>
+              </header>
+
+              <div class="comp-card-specimen">
+                <div class="comp-card-header">
+                  <span class="comp-card-name">Step Specimen</span>
+                  <code class="comp-card-meta">.step / .step__num / .step__rule</code>
+                </div>
+                <div class="comp-card-body" style="background:#1b1b1b; display:flex; flex-wrap:wrap; gap:36px;">
+                  <div class="step">
+                    <span class="idx">PHASE 01</span>
+                    <div class="step__num">01</div>
+                    <div class="step__rule"></div>
+                    <h3>HEAD FORM MEASUREMENT</h3>
+                    <p>Precise millimeter circumference and cranial shape matching to eliminate pressure points.</p>
+                  </div>
+
+                  <div class="step">
+                    <span class="idx">PHASE 02</span>
+                    <div class="step__num">02</div>
+                    <div class="step__rule"></div>
+                    <h3>MULTI-DENSITY EPS SELECTION</h3>
+                    <p>Dual-zone expanded polystyrene interior calibrated for street impact deceleration.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+
+            <!-- ============================================================
+                 COMPONENTS: TESTIMONIALS
+                 ============================================================ -->
+            <section class="comp-group" id="components-testimonials">
+              <header class="comp-group-header">
+                <p class="comp-group-eyebrow">Components · 06</p>
+                <h2 class="comp-group-title">Testimonials</h2>
+                <p class="comp-group-desc">
+                  Source-backed quote container featuring reviewer metadata, avatar indicator, coral hairline, and brand attribution.
+                </p>
+              </header>
+
+              <div class="comp-card-specimen">
+                <div class="comp-card-header">
+                  <span class="comp-card-name">Testimonial Specimen</span>
+                  <code class="comp-card-meta">.tstm</code>
+                </div>
+                <div class="comp-card-body" style="background:#f4f3ef; display:flex; flex-wrap:wrap; gap:24px;">
+                  <div class="tstm">
+                    <div class="rule--coral"></div>
+                    <div class="tstm__head">
+                      <div class="who">
+                        <b>MARCUS V.</b>
+                        <span>ISLE OF MAN TT RIDER</span>
+                      </div>
+                    </div>
+                    <blockquote>
+                      “The quietest helmet at 200 km/h. Zero visor lift, seamless peripheral vision, and no neck fatigue after six hours on track.”
+                    </blockquote>
+                    <span class="brand">RIDEFORM RACING LAB</span>
+                  </div>
+
+                  <div class="tstm">
+                    <div class="rule--coral"></div>
+                    <div class="tstm__head">
+                      <div class="who">
+                        <b>ELENA K.</b>
+                        <span>CONTINENTAL ADVENTURE TOURING</span>
+                      </div>
+                    </div>
+                    <blockquote>
+                      “Rain, gravel, and mountain passes across Patagonia. Ventilation works instantly and the liner stays fresh in 35-degree heat.”
+                    </blockquote>
+                    <span class="brand">EXPEDITION RIDER</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+          </div>
+        </div>
+      </div>
     </main>
   </div>
 
+  <!-- ROUTING SCRIPT -->
   <script>
     (function () {
+      var navOverview = document.getElementById('navOverview');
+      var navComponents = document.getElementById('navComponents');
+      var overviewView = document.getElementById('overviewView');
+      var componentsView = document.getElementById('componentsView');
+      var sidebarLinks = document.querySelectorAll('.comp-sidebar-nav a');
+      var compMain = document.querySelector('.comp-main');
+
       function syncRouting() {
         var hash = window.location.hash || '#overview';
-        if (hash === '#components') {
-          window.location.hash = '#overview';
-          return;
+        if (hash === '#components' || hash.indexOf('#foundations') === 0 || hash.indexOf('#components-') === 0) {
+          // Show Components view
+          navOverview.classList.remove('is-active');
+          navComponents.classList.add('is-active');
+          overviewView.style.display = 'none';
+          componentsView.style.display = 'block';
+
+          // If sub-hash, scroll to it
+          if (hash !== '#components') {
+            var target = document.querySelector(hash);
+            if (target && compMain) {
+              setTimeout(function () {
+                target.scrollIntoView({ behavior: 'smooth' });
+              }, 50);
+            }
+          }
+        } else {
+          // Show Overview view
+          navOverview.classList.add('is-active');
+          navComponents.classList.remove('is-active');
+          overviewView.style.display = 'block';
+          componentsView.style.display = 'none';
         }
-        var overviewLink = document.getElementById('navOverview');
-        var componentsLink = document.getElementById('navComponents');
-        if (overviewLink) overviewLink.classList.add('is-active');
-        if (componentsLink) componentsLink.classList.remove('is-active');
       }
 
       window.addEventListener('hashchange', syncRouting);
@@ -183,6 +1755,26 @@
         history.replaceState(null, '', '#overview');
       }
       syncRouting();
+
+      // Sidebar active tracking on scroll
+      if (compMain) {
+        var sections = document.querySelectorAll('.comp-group');
+        compMain.addEventListener('scroll', function () {
+          var scrollPos = compMain.scrollTop + 100;
+          sections.forEach(function (sec) {
+            if (sec.offsetTop <= scrollPos && (sec.offsetTop + sec.offsetHeight) > scrollPos) {
+              var id = sec.getAttribute('id');
+              sidebarLinks.forEach(function (link) {
+                if (link.getAttribute('href') === '#' + id) {
+                  link.classList.add('is-active');
+                } else {
+                  link.classList.remove('is-active');
+                }
+              });
+            }
+          });
+        });
+      }
     })();
   </script>
 </body>
