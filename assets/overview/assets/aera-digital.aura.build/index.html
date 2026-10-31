@@ -530,12 +530,6 @@ margin-top: clamp(50px, 6vw, 120px);
 grid-column: 3 / span 3;
 margin-top: clamp(-20px, -1vw, -10px);
 }
-.intro__casetitle {
-grid-column: 6 / -1;
-justify-self: end;
-text-align: right;
-margin-top: clamp(40px, 6vw, 90px);
-}
 /* ————————————————————————————————
 3 · CASE STUDIES
 ———————————————————————————————— */
@@ -1211,6 +1205,17 @@ align-self: start;
 grid-column: 6 / -1;
 list-style: none;
 }
+.faq__teachers .journal__row {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: clamp(24px, 3vw, 42px) var(--colgap);
+}
+.faq__teachers .post {
+grid-column: auto;
+}
+.faq__teachers .post__media img {
+filter: none !important;
+}
 /* ————————————————————————————————
 9 · JOURNAL
 ———————————————————————————————— */
@@ -1592,9 +1597,6 @@ grid-column: 5 / span 4;
 .fact:nth-child(5) {
 grid-column: 1 / span 4;
 }
-.intro__casetitle {
-grid-column: 1 / -1;
-}
 }
 @media (max-width: 767px) {
 .grid12 {
@@ -1662,6 +1664,10 @@ grid-column: 1 / -1;
 }
 .post {
 grid-column: 1 / -1;
+}
+.faq__teachers .journal__row {
+grid-template-columns: 1fr;
+gap: 40px;
 }
 .cta__left {
 grid-column: 1 / -1;
@@ -3071,7 +3077,15 @@ display: none;
   .nav__menu { display: flex !important; flex-wrap: wrap; gap: 8px 12px; }
   .nav__menu a { font-size: 8px; }
 }
-.intro__casetitle .display { font-size: clamp(48px, 7.4vw, 130px); }
+.proof__title {
+  width: min(100%, 58.333%);
+  margin: clamp(40px, 6vw, 90px) 0 0 auto;
+  text-align: right;
+}
+.proof__title { font-size: clamp(48px, 7.4vw, 130px); }
+@media (max-width: 767px) {
+  .proof__title { width: 100%; text-align: left; }
+}
 </style>
 <script src="https://cdn.tailwindcss.com"></script>
   <style id="portfolio-footer-wordmark-fit">
@@ -3128,7 +3142,7 @@ display: none;
         <div class="hero__ui">
           <div class="hero__topline micro">
             <span></span>
-            <span></span>
+            <span>GABRIEL MOURISCO · 2026</span>
           </div>
 
           <div class="hero__content">
@@ -3222,17 +3236,6 @@ display: none;
             </article>
           </div></div>
 
-        <div class="intro__casetitle">
-          <h2 class="display display--xl" aria-label="Tecnologia em movimento.">
-            <span class="line-mask">
-                <span class="line-inner">TECNOLOGIA</span>
-            </span>
-
-            <span class="line-mask">
-                <span class="line-inner">EM MOVIMENTO.</span>
-            </span>
-          </h2>
-        </div>
       </div>
     </section>
 
@@ -3272,7 +3275,12 @@ display: none;
           <strong>→</strong>
           <span class="body-s">SEMPRE EM EVOLUÇÃO</span>
         </div>
-      </div></section>
+      </div>
+      <h2 class="proof__title display display--xl" aria-label="Tecnologia em movimento.">
+        <span class="line-mask"><span class="line-inner">TECNOLOGIA</span></span>
+        <span class="line-mask"><span class="line-inner">EM MOVIMENTO.</span></span>
+      </h2>
+    </section>
 
     <!-- ————— 3 · CASE STUDIES ————— -->
 
@@ -3580,19 +3588,11 @@ display: none;
         MEUS PROFESSORES<br>
         NA FECAP<span style="color:var(--coral)">.</span>
       </h2>
-    </section>
-
-    <!-- ————— 9 · JOURNAL ————— -->
-
-    <section class="journal" id="notes" data-nav="light">
-      <div class="grid12 journal__head">
-        Professores da FECAP
-      </div>
-
-      <div class="grid12 journal__row">
-        <a class="post" href="#notes">
-          <div class="post__media post__media--mono">
-            <img src="https://mouriscog-ux.github.io/site-tron/assets/overview/assets/professor-rafael-rossetti.png" alt="Retrato do professor Rafael Rossetti" loading="lazy" decoding="async">
+      <div class="faq__list faq__teachers">
+        <div class="journal__row">
+        <a class="post" href="#faq">
+          <div class="post__media">
+            <img src="../professor-rafael-rossetti.png" alt="Retrato do professor Rafael Rossetti" loading="lazy" decoding="async">
           </div>
 
           <div class="post__line"></div>
@@ -3606,9 +3606,9 @@ display: none;
           <p>Introdução à Inteligência Artificial e Soluções de IA para Negócios.</p>
         </a>
 
-        <a class="post" href="#notes">
+        <a class="post" href="#faq">
           <div class="post__media">
-            <img src="https://mouriscog-ux.github.io/site-tron/assets/overview/assets/professor-alexandre-neves.png" alt="Retrato do professor Alexandre Neves" loading="lazy" decoding="async">
+            <img src="../professor-alexandre-neves.png" alt="Retrato do professor Alexandre Neves" loading="lazy" decoding="async">
           </div>
 
           <div class="post__line"></div>
@@ -3620,9 +3620,9 @@ display: none;
           <p>Princípios de Robótica e IoT.</p>
         </a>
 
-        <a class="post" href="#notes">
-          <div class="post__media post__media--red">
-            <img src="https://mouriscog-ux.github.io/site-tron/assets/overview/assets/professor-herbert-bratefixe.png" alt="Retrato do professor Herbert Bratefixe" loading="lazy" decoding="async">
+        <a class="post" href="#faq">
+          <div class="post__media">
+            <img src="../professor-herbert-bratefixe.png" alt="Retrato do professor Herbert Bratefixe" loading="lazy" decoding="async">
           </div>
 
           <div class="post__line"></div>
@@ -3636,9 +3636,9 @@ display: none;
           <p>Estrutura de Dados.</p>
         </a>
 
-        <a class="post" href="#notes">
+        <a class="post" href="#faq">
           <div class="post__media">
-            <img src="https://mouriscog-ux.github.io/site-tron/assets/overview/assets/professor-aguinaldo-alberto.png" alt="Retrato do professor Aguinaldo Alberto" loading="lazy" decoding="async">
+            <img src="../professor-aguinaldo-alberto.png" alt="Retrato do professor Aguinaldo Alberto" loading="lazy" decoding="async">
           </div>
 
           <div class="post__line"></div>
@@ -3651,6 +3651,7 @@ display: none;
 
           <p>Python.</p>
         </a>
+        </div>
       </div>
     </section>
 
@@ -3702,7 +3703,7 @@ display: none;
           </div>
 
           <div class="cta-submit">
-            <a class="main" href="https://wa.me/" target="_blank" rel="noopener noreferrer">Entre em contato</a>
+            <a class="main" href="https://wa.me/55119133243" target="_blank" rel="noopener noreferrer">Entre em contato</a>
             <span class="arr" aria-hidden="true">↗</span>
           </div>
         </div>
@@ -3745,7 +3746,7 @@ display: none;
           <h4>Contato</h4>
           <a href="#contact">Entre em contato</a>
           <a href="mailto:gabriel@fecap.br">E-mail</a>
-          <a href="https://wa.me/" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          <a href="https://wa.me/55119133243" target="_blank" rel="noopener noreferrer">WhatsApp</a>
         </div>
 
         <a class="footer__email" href="mailto:gabriel@fecap.br" aria-label="Enviar e-mail para Gabriel Mourisco">
@@ -4100,7 +4101,7 @@ display: none;
 
         gsap.fromTo(
 
-          ".intro__casetitle .line-inner",
+          ".proof__title .line-inner",
 
           { yPercent: 110 },
 
@@ -4114,7 +4115,7 @@ display: none;
 
             stagger: 0.1,
 
-            scrollTrigger: { trigger: ".intro__casetitle", start: "top 85%", once: true },
+            scrollTrigger: { trigger: ".proof__title", start: "top 85%", once: true },
 
           }
 
