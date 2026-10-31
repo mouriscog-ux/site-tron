@@ -1,314 +1,374 @@
 {
- "entryUrl": "https://aera-digital.aura.build/",
- "capturedAt": "2026-10-27T14:55:45+00:00",
- "indexHtml": {
-  "kind": "arquivo",
-  "description": "site vivo aberto com duplo clique (file://): um runtime faz o papel do Service Worker; imagens e vídeos que a página só exibe são lidos de assets/, o resto (CSS, JS, fontes, dados, imagens de WebGL) vai embutido no index.html"
- },
- "files": [
-  {
-   "url": "https://aera-digital.aura.build/favicon.ico",
-   "file": "assets/aera-digital.aura.build/favicon.ico",
-   "type": "image/vnd.microsoft.icon",
-   "resourceType": "other",
-   "size": 696,
-   "status": 200,
-   "party": "first",
-   "passes": [
-    "desktop"
-   ]
+  "entryUrl": "https://aera-digital.aura.build/",
+  "capturedAt": "2026-10-27T11:55:45-03:00",
+  "indexHtml": {
+    "kind": "arquivo",
+    "description": "site vivo aberto com duplo clique (file://): um runtime faz o papel do Service Worker; imagens e vídeos que a página só exibe são lidos de assets/, o resto (CSS, JS, fontes, dados, imagens de WebGL) vai embutido no index.html"
   },
-  {
-   "url": "https://aera-digital.aura.build/",
-   "file": "assets/aera-digital.aura.build/index.html",
-   "type": "text/html",
-   "resourceType": "document",
-   "size": 134576,
-   "status": 200,
-   "party": "first",
-   "passes": [
-    "desktop"
-   ]
-  },
-  {
-   "url": "https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js",
-   "file": "assets/cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js",
-   "type": "application/javascript",
-   "resourceType": "script",
-   "size": 43380,
-   "status": 200,
-   "party": "third",
-   "passes": [
-    "desktop"
-   ],
-   "library": {
-    "name": "gsap",
-    "version": "3.12.5"
-   },
-   "role": "library"
-  },
-  {
-   "url": "https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js",
-   "file": "assets/cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js",
-   "type": "application/javascript",
-   "resourceType": "script",
-   "size": 72214,
-   "status": 200,
-   "party": "third",
-   "passes": [
-    "desktop"
-   ],
-   "library": {
-    "name": "gsap",
-    "version": "3.12.5"
-   },
-   "role": "library"
-  },
-  {
-   "url": "https://cdn.tailwindcss.com/3.4.17",
-   "file": "assets/cdn.tailwindcss.com/3.4.17.js",
-   "type": "text/javascript",
-   "resourceType": "script",
-   "size": 407279,
-   "status": 200,
-   "party": "third",
-   "passes": [
-    "desktop"
-   ],
-   "library": {
-    "name": "tailwindcss (Play CDN)",
-    "version": "3.4.17"
-   },
-   "role": "library"
-  },
-  {
-   "url": "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap",
-   "file": "assets/fonts.googleapis.com/css2__q3758503c.css",
-   "type": "text/css",
-   "resourceType": "stylesheet",
-   "size": 10895,
-   "status": 200,
-   "party": "third",
-   "passes": [
-    "desktop"
-   ],
-   "role": "third-party"
-  },
-  {
-   "url": "https://fonts.gstatic.com/s/manrope/v20/xn7gYHE41ni1AdIRggexSvfedN4.woff2",
-   "file": "assets/fonts.gstatic.com/s/manrope/v20/xn7gYHE41ni1AdIRggexSvfedN4.woff2",
-   "type": "font/woff2",
-   "resourceType": "font",
-   "size": 24576,
-   "status": 200,
-   "party": "third",
-   "passes": [
-    "desktop"
-   ]
-  },
-  {
-   "url": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/897ef260-7a2d-4bb2-921e-80a9255331c2_320w.webp",
-   "file": "assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/897ef260-7a2d-4bb2-921e-80a9255331c2_320w.webp",
-   "type": "image/webp",
-   "resourceType": "image",
-   "size": 7148,
-   "status": 200,
-   "party": "third",
-   "passes": [
-    "desktop"
-   ]
-  },
-  {
-   "url": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/12ff2719-ca76-44ca-903d-df8591b42720_1600w.png?width=160&quality=72",
-   "file": "assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/12ff2719-ca76-44ca-903d-df8591b42720_1600w__qd17e2cca.png",
-   "type": "image/webp",
-   "resourceType": "image",
-   "size": 19202,
-   "status": 200,
-   "party": "third",
-   "passes": [
-    "desktop"
-   ]
-  },
-  {
-   "url": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/200d99d6-ec34-4afc-ba66-b72365db699b_3840w.png?width=160&quality=70",
-   "file": "assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/200d99d6-ec34-4afc-ba66-b72365db699b_3840w__qf2545d9a.png",
-   "type": "image/webp",
-   "resourceType": "image",
-   "size": 11304,
-   "status": 200,
-   "party": "third",
-   "passes": [
-    "desktop"
-   ]
-  },
-  {
-   "url": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/33f0717e-fcaf-439b-829b-1ec1327a4c6c_3840w.png?width=1600&quality=80",
-   "file": "assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/33f0717e-fcaf-439b-829b-1ec1327a4c6c_3840w__qac2f3ab1.png",
-   "type": "image/webp",
-   "resourceType": "image",
-   "size": 72976,
-   "status": 200,
-   "party": "third",
-   "passes": [
-    "desktop"
-   ]
-  },
-  {
-   "url": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/7a229b31-4b44-4ce1-a164-0fc44debdc53_3840w.png?width=1600&quality=80",
-   "file": "assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/7a229b31-4b44-4ce1-a164-0fc44debdc53_3840w__qac2f3ab1.png",
-   "type": "image/webp",
-   "resourceType": "image",
-   "size": 111892,
-   "status": 200,
-   "party": "third",
-   "passes": [
-    "desktop"
-   ]
-  },
-  {
-   "url": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/7af5eab1-0ffa-4a96-a212-5da5e28e9fbc_3840w.jpg?width=1920&quality=82",
-   "file": "assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/7af5eab1-0ffa-4a96-a212-5da5e28e9fbc_3840w__q7c85981e.jpg",
-   "type": "image/webp",
-   "resourceType": "image",
-   "size": 133404,
-   "status": 200,
-   "party": "third",
-   "passes": [
-    "desktop"
-   ]
-  },
-  {
-   "url": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/84578b92-b788-45d4-8a7c-2569b7869806_3840w.png?width=160&quality=72",
-   "file": "assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/84578b92-b788-45d4-8a7c-2569b7869806_3840w__qd17e2cca.png",
-   "type": "image/webp",
-   "resourceType": "image",
-   "size": 50306,
-   "status": 200,
-   "party": "third",
-   "passes": [
-    "desktop"
-   ]
-  },
-  {
-   "url": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/c5d97bf3-a2ac-42ba-b14b-69e7b949fe40_3840w.png?width=160&quality=72",
-   "file": "assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/c5d97bf3-a2ac-42ba-b14b-69e7b949fe40_3840w__qd17e2cca.png",
-   "type": "image/webp",
-   "resourceType": "image",
-   "size": 13508,
-   "status": 200,
-   "party": "third",
-   "passes": [
-    "desktop"
-   ]
-  },
-  {
-   "url": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/c910b6a5-7234-4dc1-ac4c-935b230b30c8_3840w.png?width=900&quality=78",
-   "file": "assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/c910b6a5-7234-4dc1-ac4c-935b230b30c8_3840w__qf5029a7a.png",
-   "type": "image/webp",
-   "resourceType": "image",
-   "size": 32526,
-   "status": 200,
-   "party": "third",
-   "passes": [
-    "desktop"
-   ]
-  },
-  {
-   "url": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/d53b9a4c-19d5-40fc-b4df-db43e0148276_1600w.png?width=160&quality=72",
-   "file": "assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/d53b9a4c-19d5-40fc-b4df-db43e0148276_1600w__qd17e2cca.png",
-   "type": "image/webp",
-   "resourceType": "image",
-   "size": 18874,
-   "status": 200,
-   "party": "third",
-   "passes": [
-    "desktop"
-   ]
-  },
-  {
-   "url": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/fa81787a-a5ba-4785-b60b-940e3753352e_1600w.png?width=800&quality=78",
-   "file": "assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/fa81787a-a5ba-4785-b60b-940e3753352e_1600w__q9931e4f3.png",
-   "type": "image/webp",
-   "resourceType": "image",
-   "size": 52408,
-   "status": 200,
-   "party": "third",
-   "passes": [
-    "desktop"
-   ]
-  },
-  {
-   "url": "https://images.unsplash.com/photo-1576151238945-e3dfd7239338?w=1400&q=80&auto=format&fit=crop",
-   "file": "assets/images.unsplash.com/photo-1576151238945-e3dfd7239338__q1d4206c9.avif",
-   "type": "image/avif",
-   "resourceType": "image",
-   "size": 53305,
-   "status": 200,
-   "party": "third",
-   "passes": [
-    "desktop"
-   ]
-  },
-  {
-   "url": "https://images.unsplash.com/photo-1587000258561-0974c704454b?w=1000&q=78&auto=format&fit=crop",
-   "file": "assets/images.unsplash.com/photo-1587000258561-0974c704454b__qa800594c.avif",
-   "type": "image/avif",
-   "resourceType": "image",
-   "size": 50608,
-   "status": 200,
-   "party": "third",
-   "passes": [
-    "desktop"
-   ]
-  },
-  {
-   "url": "https://images.unsplash.com/photo-1632278819098-51dfc937b5f3?w=1000&q=78&auto=format&fit=crop",
-   "file": "assets/images.unsplash.com/photo-1632278819098-51dfc937b5f3__qa800594c.avif",
-   "type": "image/avif",
-   "resourceType": "image",
-   "size": 56156,
-   "status": 200,
-   "party": "third",
-   "passes": [
-    "desktop"
-   ]
-  },
-  {
-   "url": "https://images.unsplash.com/photo-1644435234001-ceb5f78330f1?w=1000&q=78&auto=format&fit=crop",
-   "file": "assets/images.unsplash.com/photo-1644435234001-ceb5f78330f1__qa800594c.avif",
-   "type": "image/avif",
-   "resourceType": "image",
-   "size": 141363,
-   "status": 200,
-   "party": "third",
-   "passes": [
-    "desktop"
-   ]
-  },
-  {
-   "url": "https://images.unsplash.com/photo-1771791341559-bc0aa19126c1?w=1000&q=78&auto=format&fit=crop",
-   "file": "assets/images.unsplash.com/photo-1771791341559-bc0aa19126c1__qa800594c.avif",
-   "type": "image/avif",
-   "resourceType": "image",
-   "size": 21488,
-   "status": 200,
-   "party": "third",
-   "passes": [
-    "desktop"
-   ]
-  },
-  {
-   "url": "https://images.unsplash.com/photo-1771791341559-bc0aa19126c1?w=1000&q=80&auto=format&fit=crop",
-   "file": "assets/images.unsplash.com/photo-1771791341559-bc0aa19126c1__qf513fe65.avif",
-   "type": "image/avif",
-   "resourceType": "image",
-   "size": 21496,
-   "status": 200,
-   "party": "third",
-   "passes": [
-    "desktop"
-   ]
-  }
- ]
+  "files": [
+    {
+      "url": "https://aera-digital.aura.build/favicon.ico",
+      "file": "assets/aera-digital.aura.build/favicon.ico",
+      "type": "image/vnd.microsoft.icon",
+      "resourceType": "other",
+      "size": 696,
+      "status": 200,
+      "party": "first",
+      "passes": [
+        "desktop"
+      ]
+    },
+    {
+      "url": "https://aera-digital.aura.build/",
+      "file": "assets/aera-digital.aura.build/index.html",
+      "type": "text/html",
+      "resourceType": "document",
+      "size": 129789,
+      "status": 200,
+      "party": "first",
+      "passes": [
+        "desktop"
+      ]
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js",
+      "file": "assets/cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js",
+      "type": "application/javascript",
+      "resourceType": "script",
+      "size": 43380,
+      "status": 200,
+      "party": "third",
+      "passes": [
+        "desktop"
+      ],
+      "library": {
+        "name": "gsap",
+        "version": "3.12.5"
+      },
+      "role": "library"
+    },
+    {
+      "url": "https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js",
+      "file": "assets/cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js",
+      "type": "application/javascript",
+      "resourceType": "script",
+      "size": 72214,
+      "status": 200,
+      "party": "third",
+      "passes": [
+        "desktop"
+      ],
+      "library": {
+        "name": "gsap",
+        "version": "3.12.5"
+      },
+      "role": "library"
+    },
+    {
+      "url": "https://cdn.tailwindcss.com/3.4.17",
+      "file": "assets/cdn.tailwindcss.com/3.4.17.js",
+      "type": "text/javascript",
+      "resourceType": "script",
+      "size": 407279,
+      "status": 200,
+      "party": "third",
+      "passes": [
+        "desktop"
+      ],
+      "library": {
+        "name": "tailwindcss (Play CDN)",
+        "version": "3.4.17"
+      },
+      "role": "library"
+    },
+    {
+      "url": "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap",
+      "file": "assets/fonts.googleapis.com/css2__q3758503c.css",
+      "type": "text/css",
+      "resourceType": "stylesheet",
+      "size": 10895,
+      "status": 200,
+      "party": "third",
+      "passes": [
+        "desktop"
+      ],
+      "role": "third-party"
+    },
+    {
+      "url": "https://fonts.gstatic.com/s/manrope/v20/xn7gYHE41ni1AdIRggexSvfedN4.woff2",
+      "file": "assets/fonts.gstatic.com/s/manrope/v20/xn7gYHE41ni1AdIRggexSvfedN4.woff2",
+      "type": "font/woff2",
+      "resourceType": "font",
+      "size": 24576,
+      "status": 200,
+      "party": "third",
+      "passes": [
+        "desktop"
+      ]
+    },
+    {
+      "url": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/897ef260-7a2d-4bb2-921e-80a9255331c2_320w.webp",
+      "file": "assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/897ef260-7a2d-4bb2-921e-80a9255331c2_320w.webp",
+      "type": "image/webp",
+      "resourceType": "image",
+      "size": 7148,
+      "status": 200,
+      "party": "third",
+      "passes": [
+        "desktop"
+      ]
+    },
+    {
+      "url": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/12ff2719-ca76-44ca-903d-df8591b42720_1600w.png?width=160&quality=72",
+      "file": "assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/12ff2719-ca76-44ca-903d-df8591b42720_1600w__qd17e2cca.png",
+      "type": "image/webp",
+      "resourceType": "image",
+      "size": 19202,
+      "status": 200,
+      "party": "third",
+      "passes": [
+        "desktop"
+      ]
+    },
+    {
+      "url": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/200d99d6-ec34-4afc-ba66-b72365db699b_3840w.png?width=160&quality=70",
+      "file": "assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/200d99d6-ec34-4afc-ba66-b72365db699b_3840w__qf2545d9a.png",
+      "type": "image/webp",
+      "resourceType": "image",
+      "size": 11304,
+      "status": 200,
+      "party": "third",
+      "passes": [
+        "desktop"
+      ]
+    },
+    {
+      "url": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/33f0717e-fcaf-439b-829b-1ec1327a4c6c_3840w.png?width=1600&quality=80",
+      "file": "assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/33f0717e-fcaf-439b-829b-1ec1327a4c6c_3840w__qac2f3ab1.png",
+      "type": "image/webp",
+      "resourceType": "image",
+      "size": 72976,
+      "status": 200,
+      "party": "third",
+      "passes": [
+        "desktop"
+      ]
+    },
+    {
+      "url": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/7a229b31-4b44-4ce1-a164-0fc44debdc53_3840w.png?width=1600&quality=80",
+      "file": "assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/7a229b31-4b44-4ce1-a164-0fc44debdc53_3840w__qac2f3ab1.png",
+      "type": "image/webp",
+      "resourceType": "image",
+      "size": 111892,
+      "status": 200,
+      "party": "third",
+      "passes": [
+        "desktop"
+      ]
+    },
+    {
+      "url": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/7af5eab1-0ffa-4a96-a212-5da5e28e9fbc_3840w.jpg?width=1920&quality=82",
+      "file": "assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/7af5eab1-0ffa-4a96-a212-5da5e28e9fbc_3840w__q7c85981e.jpg",
+      "type": "image/webp",
+      "resourceType": "image",
+      "size": 133404,
+      "status": 200,
+      "party": "third",
+      "passes": [
+        "desktop"
+      ]
+    },
+    {
+      "url": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/84578b92-b788-45d4-8a7c-2569b7869806_3840w.png?width=160&quality=72",
+      "file": "assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/84578b92-b788-45d4-8a7c-2569b7869806_3840w__qd17e2cca.png",
+      "type": "image/webp",
+      "resourceType": "image",
+      "size": 50306,
+      "status": 200,
+      "party": "third",
+      "passes": [
+        "desktop"
+      ]
+    },
+    {
+      "url": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/c5d97bf3-a2ac-42ba-b14b-69e7b949fe40_3840w.png?width=160&quality=72",
+      "file": "assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/c5d97bf3-a2ac-42ba-b14b-69e7b949fe40_3840w__qd17e2cca.png",
+      "type": "image/webp",
+      "resourceType": "image",
+      "size": 13508,
+      "status": 200,
+      "party": "third",
+      "passes": [
+        "desktop"
+      ]
+    },
+    {
+      "url": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/c910b6a5-7234-4dc1-ac4c-935b230b30c8_3840w.png?width=900&quality=78",
+      "file": "assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/c910b6a5-7234-4dc1-ac4c-935b230b30c8_3840w__qf5029a7a.png",
+      "type": "image/webp",
+      "resourceType": "image",
+      "size": 32526,
+      "status": 200,
+      "party": "third",
+      "passes": [
+        "desktop"
+      ]
+    },
+    {
+      "url": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/d53b9a4c-19d5-40fc-b4df-db43e0148276_1600w.png?width=160&quality=72",
+      "file": "assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/d53b9a4c-19d5-40fc-b4df-db43e0148276_1600w__qd17e2cca.png",
+      "type": "image/webp",
+      "resourceType": "image",
+      "size": 18874,
+      "status": 200,
+      "party": "third",
+      "passes": [
+        "desktop"
+      ]
+    },
+    {
+      "url": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/fa81787a-a5ba-4785-b60b-940e3753352e_1600w.png?width=800&quality=78",
+      "file": "assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/fa81787a-a5ba-4785-b60b-940e3753352e_1600w__q9931e4f3.png",
+      "type": "image/webp",
+      "resourceType": "image",
+      "size": 52408,
+      "status": 200,
+      "party": "third",
+      "passes": [
+        "desktop"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1576151238945-e3dfd7239338?w=1400&q=80&auto=format&fit=crop",
+      "file": "assets/images.unsplash.com/photo-1576151238945-e3dfd7239338__q1d4206c9.avif",
+      "type": "image/avif",
+      "resourceType": "image",
+      "size": 53305,
+      "status": 200,
+      "party": "third",
+      "passes": [
+        "desktop"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1587000258561-0974c704454b?w=1000&q=78&auto=format&fit=crop",
+      "file": "assets/images.unsplash.com/photo-1587000258561-0974c704454b__qa800594c.avif",
+      "type": "image/avif",
+      "resourceType": "image",
+      "size": 50608,
+      "status": 200,
+      "party": "third",
+      "passes": [
+        "desktop"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1632278819098-51dfc937b5f3?w=1000&q=78&auto=format&fit=crop",
+      "file": "assets/images.unsplash.com/photo-1632278819098-51dfc937b5f3__qa800594c.avif",
+      "type": "image/avif",
+      "resourceType": "image",
+      "size": 56156,
+      "status": 200,
+      "party": "third",
+      "passes": [
+        "desktop"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1644435234001-ceb5f78330f1?w=1000&q=78&auto=format&fit=crop",
+      "file": "assets/images.unsplash.com/photo-1644435234001-ceb5f78330f1__qa800594c.avif",
+      "type": "image/avif",
+      "resourceType": "image",
+      "size": 141363,
+      "status": 200,
+      "party": "third",
+      "passes": [
+        "desktop"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1771791341559-bc0aa19126c1?w=1000&q=78&auto=format&fit=crop",
+      "file": "assets/images.unsplash.com/photo-1771791341559-bc0aa19126c1__qa800594c.avif",
+      "type": "image/avif",
+      "resourceType": "image",
+      "size": 21488,
+      "status": 200,
+      "party": "third",
+      "passes": [
+        "desktop"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1771791341559-bc0aa19126c1?w=1000&q=80&auto=format&fit=crop",
+      "file": "assets/images.unsplash.com/photo-1771791341559-bc0aa19126c1__qf513fe65.avif",
+      "type": "image/avif",
+      "resourceType": "image",
+      "size": 21496,
+      "status": 200,
+      "party": "third",
+      "passes": [
+        "desktop"
+      ]
+    },
+    {
+      "url": "https://aera-digital.aura.build/gabriel-mourisco-hero.png",
+      "file": "assets/gabriel-mourisco-hero.png",
+      "type": "image/png",
+      "resourceType": "image",
+      "size": 2018809,
+      "status": 200,
+      "party": "first",
+      "passes": [
+        "desktop"
+      ]
+    },
+    {
+      "url": "https://aera-digital.aura.build/urbanisa-tech-project.png",
+      "file": "assets/urbanisa-tech-project.png",
+      "type": "image/png",
+      "resourceType": "image",
+      "size": 2213093,
+      "status": 200,
+      "party": "first",
+      "passes": [
+        "desktop"
+      ]
+    },
+    {
+      "url": "https://aera-digital.aura.build/gabriel-fecap-portrait.png",
+      "file": "assets/gabriel-fecap-portrait.png",
+      "type": "image/png",
+      "resourceType": "image",
+      "size": 2182907,
+      "status": 200,
+      "party": "first",
+      "passes": [
+        "desktop"
+      ]
+    },
+    {
+      "url": "https://aera-digital.aura.build/ai-human-project.png",
+      "file": "assets/ai-human-project.png",
+      "type": "image/png",
+      "resourceType": "image",
+      "size": 2333071,
+      "status": 200,
+      "party": "first",
+      "passes": [
+        "desktop"
+      ]
+    },
+    {
+      "url": "https://aera-digital.aura.build/neon-motorcycle.png",
+      "file": "assets/neon-motorcycle.png",
+      "type": "image/png",
+      "resourceType": "image",
+      "size": 2336173,
+      "status": 200,
+      "party": "first",
+      "passes": [
+        "desktop"
+      ]
+    }
+  ]
 }

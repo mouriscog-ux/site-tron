@@ -1,11 +1,11 @@
-<html lang="en"><head><meta charset="UTF-8">
+<html lang="pt-BR"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RIDEFORM® — Premium Motorcycle Helmets</title>
-<meta name="description" content="Premium ECE 22.06 motorcycle helmets engineered for confident street, touring, and track riding.">
+<title>Gabriel Mourisco — Portfólio pessoal</title>
+<meta name="description" content="Portfólio de Gabriel Mourisco, estudante de Inteligência Artificial na FECAP. Projetos, programação e soluções digitais.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/7af5eab1-0ffa-4a96-a212-5da5e28e9fbc_3840w.jpg?width=1920&amp;quality=82" crossorigin="anonymous">
+<link rel="preload" as="image" href="../gabriel-mourisco-hero.png">
 <style>
 /* ————————————————————————————————
 RIDEFORM® — design tokens
@@ -208,11 +208,11 @@ letter-spacing: -0.02em;
 }
 .nav__menu {
 display: flex;
-gap: clamp(14px, 2vw, 34px);
+gap: clamp(16px, 2.5vw, 36px);
 list-style: none;
 }
 .nav__menu a {
-font-size: 10px;
+font-size: 11px;
 font-weight: 600;
 letter-spacing: 0.12em;
 text-transform: uppercase;
@@ -1210,65 +1210,6 @@ align-self: start;
 .faq__list {
 grid-column: 6 / -1;
 list-style: none;
-}
-.faq-item {
-border-bottom: 1px solid var(--rule-l);
-}
-.faq-item:first-child {
-border-top: 1px solid var(--rule-l);
-}
-.faq-item button {
-width: 100%;
-display: flex;
-align-items: center;
-justify-content: space-between;
-gap: 20px;
-padding: clamp(18px, 1.8vw, 26px) 0;
-text-align: left;
-font-size: clamp(15px, 1.3vw, 20px);
-font-weight: 700;
-letter-spacing: -0.015em;
-}
-.faq-item .plus {
-flex: none;
-width: 14px;
-height: 14px;
-position: relative;
-transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
-}
-.faq-item .plus::before,
-.faq-item .plus::after {
-content: "";
-position: absolute;
-background: var(--coral);
-}
-.faq-item .plus::before {
-inset: 6.5px 0;
-}
-.faq-item .plus::after {
-inset: 0 6.5px;
-}
-.faq-item.open .plus {
-transform: rotate(135deg);
-}
-.faq-item__body {
-display: grid;
-grid-template-rows: 0fr;
-transition: grid-template-rows 0.45s cubic-bezier(0.32, 0.72, 0, 1);
-}
-.faq-item.open .faq-item__body {
-grid-template-rows: 1fr;
-}
-.faq-item__inner {
-overflow: hidden;
-min-height: 0;
-}
-.faq-item__body p {
-padding-bottom: 24px;
-max-width: 560px;
-color: var(--soft);
-font-size: 13px;
-line-height: 1.7;
 }
 /* ————————————————————————————————
 9 · JOURNAL
@@ -2303,7 +2244,7 @@ display: block !important;
 background:
 linear-gradient(90deg, rgba(5, 5, 5, .98) 0%, rgba(5, 5, 5, .78) 30%, rgba(5, 5, 5, .12) 72%),
 linear-gradient(0deg, rgba(5, 5, 5, .92) 0%, rgba(5, 5, 5, .12) 58%),
-radial-gradient(circle at 73% 46%, rgba(183, 255, 39, .13), transparent 25%);
+radial-gradient(circle at 73% 46%, rgba(183, 255, 39, .17), transparent 25%);
 }
 .hero__stage::after {
 content: "";
@@ -2406,7 +2347,7 @@ border-radius: 0;
 background: #080808;
 }
 .services h2 {
-grid-column: 1 / span 6;
+grid-column: 1 / span 8;
 }
 .services__list {
 display: grid;
@@ -2618,7 +2559,7 @@ padding-block: 14px;
 object-position: 58% 50%;
 }
 .hero__media::after {
-background: linear-gradient(0deg, rgba(5, 5, 5, .96) 0%, rgba(5, 5, 5, .2) 72%), radial-gradient(circle at 55% 42%, rgba(183, 255, 39, .12), transparent 28%);
+background: linear-gradient(0deg, rgba(5, 5, 5, .96) 0%, rgba(5, 5, 5, .2) 72%), radial-gradient(circle at 55% 42%, rgba(183, 255, 39, .15), transparent 28%);
 }
 .hero__stage::after {
 inset: 62px 10px 12px;
@@ -2643,10 +2584,12 @@ line-height: .88;
 bottom: 20px;
 }
 .services__list,
-.proof__logos,
 .proof__stats,
 .sectors__grid {
 grid-template-columns: 1fr;
+}
+.proof__logos {
+grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 .service-row,
 .service-row:nth-child(even),
@@ -2663,7 +2606,8 @@ margin-top: 10px;
 }
 .proof__logo {
 border-bottom: 1px solid rgba(255, 255, 255, .08);
-padding: 20px 0;
+font-size: clamp(11px, 3vw, 14px);
+padding: 16px 8px 16px 0;
 }
 .proof__stat {
 padding-top: 28px;
@@ -2795,10 +2739,10 @@ transparent 100%
 transition: opacity .18s steps(3, end);
 }
 .hero__stage:hover .hero__pixel-canvas {
-opacity: .96;
+opacity: .45;
 }
 .hero__stage:hover .hero__media img {
-filter: saturate(.68) contrast(1.05) !important;
+filter: saturate(.88) contrast(1.02) !important;
 }
 .hero__topline {
 position: absolute;
@@ -2961,7 +2905,6 @@ letter-spacing: -.045em;
 .hero__cluster p,
 .pkg__desc,
 .post p,
-.faq-item__inner,
 .footer__col span {
 font-family: var(--font-sans);
 font-weight: 400;
@@ -3051,26 +2994,100 @@ letter-spacing: .08em;
 @media (hover: none), (prefers-reduced-motion: reduce) {
 .hero__media img,
 .hero__stage:hover .hero__media img {
-transform: scale(1.035);
+transform: scale(.85);
 transition: none;
 }
 .hero__pixel-canvas {
 display: none;
 }
 }
+
+/* Keep the original editorial title fitted after the personalized copy change. */.hero__media img {
+  object-fit: cover;
+  object-position: 50% 44%;
+}
+@media (max-width: 767px) {
+  .hero__media img { object-position: 54% 44%; }
+}
+.hero__wordmark {
+  width: 100%;
+  max-width: 100%;
+  font-size: clamp(66px, 9.4vw, 156px);
+  line-height: .92;
+  white-space: normal;
+}
+.hero__wordmark > span {
+  display: block;
+  white-space: nowrap;
+}
+@media (max-width: 767px) {
+  .hero__wordmark {
+    font-size: clamp(38px, 14.5vw, 64px);
+    line-height: .94;
+    letter-spacing: -.085em;
+  }
+}
+.preloader__word {
+  font-size: clamp(50px, 14vw, 270px);
+  white-space: nowrap;
+}
+.preloader__top span:first-child {
+  font-size: 12px;
+  font-weight: 700;
+}
+.nav__logo {
+  font-size: clamp(9px, .8vw, 12px);
+  letter-spacing: .08em;
+}
+@media (max-width: 767px) {
+  .nav__logo { font-size: 9px; }
+  .preloader__word { font-size: clamp(32px, 14vw, 96px); }
+  .hero__actions { grid-template-columns: minmax(0, 1fr); }
+  .hero__cta--secondary { font-size: 10px; letter-spacing: .06em; padding-inline: 12px; }
+  .hero__media img { transform: scale(.85); }
+}
+.hero__media { inset: -8.8% -10%; }
+.hero__media img { transform: scale(.85); }
+.hero__wordmark {
+  display: grid;
+  align-content: end;
+  min-height: 1.88em;
+}
+.hero__personal-tag {
+  color: rgba(255, 255, 255, .82);
+  font-size: clamp(12px, 1vw, 15px);
+  font-weight: 600;
+  letter-spacing: .12em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+.hero__support {
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: end;
+}
+@media (max-width: 767px) {
+  .nav { flex-wrap: wrap; row-gap: 10px; }
+  .nav > nav { flex-basis: 100%; order: 2; }
+  .nav__menu { display: flex !important; flex-wrap: wrap; gap: 8px 12px; }
+  .nav__menu a { font-size: 8px; }
+}
+.intro__casetitle .display { font-size: clamp(48px, 7.4vw, 130px); }
 </style>
 <script src="https://cdn.tailwindcss.com"></script>
+  <style id="portfolio-footer-wordmark-fit">
+.footer__wordmark { font-size: clamp(96px, 17.8vw, 342px); white-space: normal; }
+@media (max-width: 767px) { .footer__wordmark { font-size: clamp(42px, 15vw, 108px); } }
+  </style>
 </head>
 
 <body class="is-loading">
   <div class="preloader" id="preloader" aria-hidden="true">
     <div class="preloader__top">
-      <span>RIDEFORM®</span>
-      <span>Premium motorcycle helmets · Toronto / Worldwide</span>
+      <span>GABRIEL MOURISCO</span>
     </div>
 
     <div class="preloader__center">
-      <span class="preloader__word">RIDEFORM</span>
+      <span class="preloader__word">APRESENTAÇÃO</span>
     </div>
 
     <div class="preloader__bottom">
@@ -3085,43 +3102,19 @@ display: none;
 
   <header class="nav" id="nav">
     <a class="nav__logo" href="#top">
-      RIDEFORM
-
-      <sup style="font-size:0.55em">®</sup>
+      APRESENTAÇÃO
     </a>
 
     <nav>
       <ul class="nav__menu">
-        <li><a href="#work">Helmets</a></li>
-
-        <li><a href="#services">Technology</a></li>
-
-        <li><a href="#about">Our standard</a></li>
-
-        <li><a href="#notes">Rider guide</a></li>
-
-        <li><a href="#faq">FAQ</a></li>
-
-        <li><a href="#contact">Fit help</a></li>
+        <li><a href="#top">INÍCIO</a></li>
+        <li><a href="#about">SOBRE MIM</a></li>
+        <li><a href="#work">PROJETOS</a></li>
+        <li><a href="#services">TECNOLOGIAS</a></li>
+        <li><a href="#contact">CONTATO</a></li>
       </ul>
     </nav>
-
-    <div class="nav__right">
-      <a class="nav__cta" href="#packages" id="bagButton">Bag · <span id="bagCount">0</span></a>
-    </div>
   </header>
-
-  <a href="#work" class="float-badge" id="floatBadge">
-    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/200d99d6-ec34-4afc-ba66-b72365db699b_3840w.png?width=160&amp;quality=70" alt="Blue and black motorcycle helmet" loading="lazy" decoding="async">
-
-    <span class="fb-txt">
-        Shop helmets
-
-        <em>Free fit exchange</em>
-      </span>
-
-    <span class="fb-sq">→</span>
-  </a>
 
   <main>
     <!-- ————— 1 · HERO ————— -->
@@ -3129,43 +3122,31 @@ display: none;
     <section class="hero" id="top">
       <div class="hero__stage">
         <div class="hero__media">
-          <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/7af5eab1-0ffa-4a96-a212-5da5e28e9fbc_3840w.jpg?width=1920&amp;quality=82" alt="Rider wearing a premium full-face motorcycle helmet" fetchpriority="high" decoding="async" crossorigin="anonymous">
+          <img src="../gabriel-mourisco-hero.png" alt="Gabriel Mourisco usando capacete" fetchpriority="high" decoding="async">
         </div>
 
         <div class="hero__ui">
           <div class="hero__topline micro">
-            <span>ECE 22.06 certified · DOT approved</span>
-            <span>2026 collection · Toronto</span>
+            <span></span>
+            <span></span>
           </div>
 
           <div class="hero__content">
-            <p class="hero__eyebrow">Premium full-face motorcycle helmets</p>
+            <p class="hero__eyebrow">APRESENTAÇÃO PESSOAL</p>
 
-            <h1 class="hero__wordmark" aria-label="Protection at speed.">
-              <span>Protection</span>
-              <span>at <em>speed.</em></span>
-            </h1>
+            <h1 class="hero__wordmark" aria-label="GABRIEL MOURISCO.">
+  <span>GABRIEL</span>
+  <span><em>MOURISCO.</em></span>
+</h1>
+
+            <p class="hero__personal-tag">ESTUDANTE FOCADO EM IA</p>
 
             <div class="hero__support">
-              <p class="hero__lead">
-                Carbon-composite helmets engineered for impact protection,
-                stable aerodynamics, and a precise all-day fit.
-              </p>
-
-              <div class="hero__actions" aria-label="Shop Rideform helmets">
-                <a class="hero__cta hero__cta--primary" href="#packages">
-                  Shop helmets <span aria-hidden="true">↗</span>
-                </a>
+              <div class="hero__actions" aria-label="Entre em contato">
                 <a class="hero__cta hero__cta--secondary" href="#contact">
-                  Find your fit
+                  Entre em contato comigo
                 </a>
               </div>
-            </div>
-
-            <div class="hero__trust" aria-label="Purchase benefits">
-              <span>Free shipping over $250</span>
-              <span>30-day size exchange</span>
-              <span>Five-year warranty</span>
             </div>
           </div>
         </div>
@@ -3181,33 +3162,7 @@ display: none;
         <div class="intro__left">
           <div class="intro__sticky">
             <div class="intro__portrait">
-              <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/c910b6a5-7234-4dc1-ac4c-935b230b30c8_3840w.png?width=900&amp;quality=78" alt="Black full-face helmet resting on a motorcycle" loading="lazy" decoding="async">
-            </div>
-
-            <div class="intro__namebar">
-              <span>RIDEFORM / Standard 22.06</span>
-
-              <span class="dot-sq" title="Available"></span>
-            </div>
-
-            <div class="intro__meta">
-              <span>
-                  <b>Shells</b>
-
-                  — Carbon composite
-                </span>
-
-              <span>
-                  <b>Visor</b>
-
-                  — Pinlock-ready
-                </span>
-
-              <span>
-                  <b>Warranty</b>
-
-                  — Five years
-                </span>
+              <img src="../gabriel-fecap-portrait.png" alt="Retrato de Gabriel Mourisco" loading="lazy" decoding="async">
             </div>
           </div>
         </div>
@@ -3216,118 +3171,65 @@ display: none;
           <div class="intro__hello">
             <span class="idx">01</span>
 
-            <span class="micro micro--dim">Our standard — no compromises</span>
+            <span class="micro micro--dim">SOBRE MIM</span>
           </div>
 
-          <h2 class="intro__lede" aria-label="Meet Rideform. We make helmets that protect without distracting. Every shell balances impact performance, quiet airflow, precise fit, and everyday comfort.">
-            <span class="line-mask" aria-hidden="true">
-                <span class="line-inner">Meet Rideform. We make</span>
-            </span>
-
-            <span class="line-mask" aria-hidden="true">
-                <span class="line-inner">helmets that protect</span>
-            </span>
-
-            <span class="line-mask" aria-hidden="true">
-                <span class="line-inner">without distracting.</span>
-            </span>
-
-            <span class="line-mask" aria-hidden="true">
-                <span class="line-inner">Every shell balances</span>
-            </span>
-
-            <span class="line-mask" aria-hidden="true">
-                <span class="line-inner">
-                  impact
-
-                  <span class="soft">performance,</span>
-            </span>
-            </span>
-
-            <span class="line-mask" aria-hidden="true">
-                <span class="line-inner">
-                  <span class="soft">quiet airflow,</span>
-            </span>
-            </span>
-
-            <span class="line-mask" aria-hidden="true">
-                <span class="line-inner">
-                  <span class="soft">precise fit, and</span>
-            </span>
-            </span>
-
-            <span class="line-mask" aria-hidden="true">
-                <span class="line-inner">
-                  <span class="soft">everyday comfort.</span>
-            </span>
-            </span>
-          </h2>
+          <h2 class="intro__lede" aria-label="Sou Gabriel Mourisco, tenho 15 anos e estou construindo meu caminho na tecnologia. Estudo Inteligência Artificial e exploro o mundo da programação, do desenvolvimento web e da criação de projetos digitais. Transformo ideias em experiências reais, aprendendo, experimentando e criando algo novo a cada projeto.">
+  <span class="line-mask" aria-hidden="true"><span class="line-inner">Sou Gabriel Mourisco, tenho 15 anos</span></span>
+  <span class="line-mask" aria-hidden="true"><span class="line-inner">e estou construindo meu caminho na tecnologia.</span></span>
+  <span class="line-mask" aria-hidden="true"><span class="line-inner">Estudo <span class="soft">Inteligência Artificial</span> e exploro</span></span>
+  <span class="line-mask" aria-hidden="true"><span class="line-inner">o mundo da programação, do</span></span>
+  <span class="line-mask" aria-hidden="true"><span class="line-inner">desenvolvimento web e da criação de</span></span>
+  <span class="line-mask" aria-hidden="true"><span class="line-inner">projetos digitais. Transformo ideias em</span></span>
+  <span class="line-mask" aria-hidden="true"><span class="line-inner">experiências reais, aprendendo,</span></span>
+  <span class="line-mask" aria-hidden="true"><span class="line-inner">experimentando e criando algo novo <span class="soft">a cada projeto.</span></span></span>
+</h2>
         </div>
 
         <div class="facts">
           <div class="facts__row">
             <article class="fact">
               <div class="fact__num">
-                <span class="cnt" data-count="55">55</span>
+                <span class="cnt" data-count="15">15</span>
                 <sup>+</sup>
               </div>
-
               <p class="fact__label body-s">
-                Impact points tested under ECE 22.06 protocols
+                Anos de idade, construindo meu futuro na tecnologia.
               </p>
             </article>
-
             <article class="fact">
               <div class="fact__num">
-                <span class="cnt" data-count="12">12</span>
-                <sup>+</sup>
+                <span class="cnt" data-count="1" data-pad="2">01</span>
               </div>
-
-              <p class="fact__label body-s">Precision air channels per shell</p>
+              <p class="fact__label body-s">Curso técnico em Inteligência Artificial.</p>
             </article>
-
             <article class="fact">
               <div class="fact__num">
-                <span class="cnt" data-count="6">6</span>
-
+                <span class="cnt" data-count="1">1</span>
                 <sup>+</sup>
               </div>
-
               <p class="fact__label body-s">
-                Shell sizes for a lower-profile, balanced fit
+                Projetos desenvolvidos durante minha formação na FECAP.
               </p>
             </article>
-
             <article class="fact">
               <div class="fact__num">
-                <span class="cnt" data-count="40">40</span>
-                <sup>+</sup>
+                <span aria-label="Infinito">∞</span>
               </div>
-
-              <p class="fact__label body-s">Millimetre anti-scratch visor</p>
-            </article>
-
-            <article class="fact">
-              <div class="fact__num">
-                <span class="cnt" data-count="28">28</span>
-                <sup>+</sup>
-              </div>
-
               <p class="fact__label body-s">
-                Day comfort and fit guarantee
+                Possibilidades para aprender, criar e evoluir.
               </p>
             </article>
-          </div>
-        </div>
+          </div></div>
 
         <div class="intro__casetitle">
-          <h2 class="display display--xl" aria-label="Helmet collection">
+          <h2 class="display display--xl" aria-label="Tecnologia em movimento.">
             <span class="line-mask">
-                <span class="line-inner">HELMET</span>
+                <span class="line-inner">TECNOLOGIA</span>
             </span>
 
             <span class="line-mask">
-                <span class="line-inner">COLLECTION.</span>
+                <span class="line-inner">EM MOVIMENTO.</span>
             </span>
           </h2>
         </div>
@@ -3335,93 +3237,46 @@ display: none;
     </section>
 
     <div class="kinetic-band" aria-hidden="true">
-      <div class="kinetic-band__track">
-        <span>
-            Street
-            <i></i>
-            Touring
-            <i></i>
-            <b class="outline">Track</b>
-            <i></i>
-            Adventure
-            <i></i>
-            Everyday
-            <i></i>
-          </span>
-
-        <span>
-            Street
-            <i></i>
-            Touring
-            <i></i>
-            <b class="outline">Track</b>
-            <i></i>
-            Adventure
-            <i></i>
-            Everyday
-            <i></i>
-          </span>
-      </div>
+      <div class="kinetic-band__track"><span>INTELIGÊNCIA ARTIFICIAL · PYTHON · DESENVOLVIMENTO WEB · INOVAÇÃO · <b class="outline">PROJETOS DE IA</b> ·</span><span>INTELIGÊNCIA ARTIFICIAL · PYTHON · DESENVOLVIMENTO WEB · INOVAÇÃO · <b class="outline">PROJETOS DE IA</b> ·</span></div>
     </div>
 
     <!-- ————— TRUST + OUTCOMES ————— -->
     <section class="proof" aria-labelledby="proof-title">
       <div class="proof__top">
         <span class="micro" id="proof-title">
-            Certified protection for every kind of ride
+            TECNOLOGIA APLICADA A IDEIAS REAIS
           </span>
-        <span class="micro micro--dim">ECE 22.06 · DOT · Five-year warranty</span>
+        <span class="micro micro--dim">PESQUISAR · CRIAR · EVOLUIR</span>
       </div>
-      <div class="proof__logos" aria-label="Helmet standards and features">
-        <span class="proof__logo">ECE 22.06</span>
-        <span class="proof__logo">DOT FMVSS</span>
-        <span class="proof__logo">PINLOCK</span>
-        <span class="proof__logo">CARBON</span>
-        <span class="proof__logo">5 YEAR</span>
+      <div class="proof__logos" aria-label="Competências e processos">
+        <span class="proof__logo">PESQUISA</span>
+        <span class="proof__logo">PROTOTIPAGEM</span>
+        <span class="proof__logo">AUTOMAÇÃO</span>
+        <span class="proof__logo">RESOLUÇÃO DE PROBLEMAS</span>
+        <span class="proof__logo">EVOLUÇÃO CONTÍNUA</span>
       </div>
       <div class="proof__stats">
         <div class="proof__stat">
-          <strong>3</strong>
-          <span class="body-s">Optimized shell sizes</span>
+          <strong>01</strong>
+          <span class="body-s">IDEIAS EM DESENVOLVIMENTO</span>
         </div>
         <div class="proof__stat">
-          <strong>12</strong>
-          <span class="body-s">Channel ventilation</span>
+          <strong>∞</strong>
+          <span class="body-s">POSSIBILIDADES ILIMITADAS</span>
         </div>
         <div class="proof__stat">
-          <strong>5</strong>
-          <span class="body-s">Year shell warranty</span>
+          <strong>24/7</strong>
+          <span class="body-s">MENTE EM MOVIMENTO</span>
         </div>
         <div class="proof__stat">
-          <strong>30</strong>
-          <span class="body-s">Day fit exchange</span>
+          <strong>→</strong>
+          <span class="body-s">SEMPRE EM EVOLUÇÃO</span>
         </div>
-      </div>
-    </section>
+      </div></section>
 
     <!-- ————— 3 · CASE STUDIES ————— -->
 
     <section class="cases" id="work">
-      <div class="cases__titlepanel" data-nav="light">
-        <div class="grid12" style="row-gap:24px">
-          <h2 class="display display--lg">
-            Find your
-
-            <br>
-
-              helmet
-
-            <span style="color:var(--coral)">.</span>
-          </h2>
-
-          <p class="sub body-m">
-            Three focused shells for three kinds of riding. Every model meets
-            ECE 22.06, includes a Pinlock-ready visor, and ships with a
-            five-year warranty.
-          </p>
-        </div>
-      </div>
-
       <div class="cases__stage-wrap">
         <div class="cases__stage">
           <div class="cases__bg"></div>
@@ -3453,79 +3308,29 @@ display: none;
           </div>
 
           <div class="case-track micro" aria-hidden="true">
-            <span>RF-01 Apex — Track / Street</span>
-
-            <span>—</span>
-
-            <span>RF-02 Atlas — Touring / ADV</span>
-
-            <span>—</span>
-
-            <span>2026 collection — ECE 22.06 certified</span>
+            <span></span><span></span><span></span><span></span><span></span>
           </div>
 
           <figure class="case-img case-img--teal">
-            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/7a229b31-4b44-4ce1-a164-0fc44debdc53_3840w.png?width=1600&amp;quality=80" alt="Blue and black motorcycle helmet" loading="lazy" decoding="async">
+            <img src="../urbanisa-tech-project.png" alt="Painel do projeto Urbanisa Tech" loading="lazy" decoding="async">
           </figure>
 
           <figure class="case-img case-img--inset">
-            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/fa81787a-a5ba-4785-b60b-940e3753352e_1600w.png?width=800&amp;quality=78" alt="Helmet resting on a motorcycle" loading="lazy" decoding="async">
+            <img src="../ai-human-project.png" alt="Jovem diante de um robô humanoide" loading="lazy" decoding="async">
           </figure>
 
           <figure class="case-img case-img--red">
-            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/33f0717e-fcaf-439b-829b-1ec1327a4c6c_3840w.png?width=1600&amp;quality=80" alt="Motorcyclist riding in a black full-face helmet" loading="lazy" decoding="async">
+            <img src="../neon-motorcycle.png" alt="Motocicleta com iluminação verde em uma estrada noturna" loading="lazy" decoding="async">
           </figure>
 
-          <div class="case-meta case-meta--a">
-            <span class="num">01</span>
-
-            <span class="micro micro--dim">Track / Street — $499</span>
-
-            <div class="case-bar">
-              <span class="t">RF-01 Apex</span>
-
-              <span class="sq">→</span>
-            </div>
-          </div>
-
-          <div class="case-meta case-meta--b">
-            <span class="num">02</span>
-
-            <span class="micro micro--dim">Touring / ADV — $429</span>
-
-            <div class="case-bar">
-              <span class="t">RF-02 Atlas</span>
-
-              <span class="sq">→</span>
-            </div>
-          </div>
+          <div class="case-meta case-meta--a" aria-hidden="true"></div>
+          <div class="case-meta case-meta--b" aria-hidden="true"></div>
 
           <div class="cases__endgrid">
-            <div class="cell">
-              <b>RF-01 Apex</b>
-
-              <span class="micro micro--dim">Carbon · 1450 g</span>
-            </div>
-
-            <div class="cell">
-              <b>RF-02 Atlas</b>
-
-              <span class="micro micro--dim">Touring · Sun visor</span>
-            </div>
-
-            <div class="cell">
-              <b>RF-03 Metro</b>
-
-              <span class="micro micro--dim">Urban · 1380 g</span>
-            </div>
-
-            <div class="cell">
-              <b>Compare all</b>
-
-              <span class="micro" style="color:var(--coral)">
-                  Shop collection →
-                </span>
-            </div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
           </div>
         </div>
       </div>
@@ -3534,100 +3339,49 @@ display: none;
     <!-- ————— 4 · WHAT I CREATE ————— -->
 
     <section class="services grid12" id="services">
-      <h2 class="display display--xl" aria-label="Protection inside.">
-        <span class="line-mask"><span class="line-inner">Protection</span></span>
-
-        <span class="line-mask">
-            <span class="line-inner">
-              inside
-
-              <span style="color:var(--coral)">.</span>
-        </span>
-        </span>
+      <h2 class="display display--xl" aria-label="O que estou desenvolvendo na FECAP.">
+        <span class="line-mask"><span class="line-inner">O QUE ESTOU</span></span>
+        <span class="line-mask"><span class="line-inner">DESENVOLVENDO NA FECAP<span style="color:var(--coral)">.</span></span></span>
       </h2>
-
       <aside class="services__side">
-        <span class="micro micro--dim">Not sure on size?</span>
-
-        <p class="plan">Measure once. Ride comfortably for years.</p>
-
-        <a class="btn btn--coral" href="#contact">
-          <span class="sq"></span>
-
-          Open fit guide
-        </a>
+        <span class="micro micro--dim">FORMAÇÃO · TECNOLOGIA · INOVAÇÃO</span>
+        <a class="plan" href="#about">CONHEÇA MINHA<br>JORNADA <span style="color:var(--coral)">↗</span></a>
       </aside>
-
       <div class="services__list">
         <div class="service-row">
           <span class="idx">01</span>
-
-          <h3>Multi-density EPS</h3>
-
-          <p class="tag body-s">
-            Zoned impact absorption engineered for low- and high-speed energy.
-          </p>
-
+          <h3>Python</h3>
+          <p class="tag body-s">Lógica de programação, estruturas de dados e desenvolvimento de soluções.</p>
           <hr class="rule rule--dark">
         </div>
-
         <div class="service-row">
           <span class="idx">02</span>
-
-          <h3>Aero-balanced shell</h3>
-
-          <p class="tag body-s">
-            Wind-tunnel-shaped geometry reduces lift and neck fatigue at speed.
-          </p>
-
+          <h3>Arquitetura de Dados</h3>
+          <p class="tag body-s">Organização, estruturação e gerenciamento de dados em aplicações reais.</p>
           <hr class="rule rule--dark">
         </div>
-
         <div class="service-row">
           <span class="idx">03</span>
-
-          <h3>12-channel ventilation</h3>
-
-          <p class="tag body-s">
-            Independently controlled intake and exhaust ports keep air moving.
-          </p>
-
+          <h3>Introdução à IA</h3>
+          <p class="tag body-s">Fundamentos da inteligência artificial e suas aplicações no mundo atual.</p>
           <hr class="rule rule--dark">
         </div>
-
         <div class="service-row">
           <span class="idx">04</span>
-
-          <h3>Optically correct visor</h3>
-
-          <p class="tag body-s">
-            Wide field of view, tool-free release, UV protection, and Pinlock prep.
-          </p>
-
+          <h3>IA para Negócios</h3>
+          <p class="tag body-s">Aplicação da inteligência artificial na resolução de problemas empresariais.</p>
           <hr class="rule rule--dark">
         </div>
-
         <div class="service-row">
           <span class="idx">05</span>
-
-          <h3>Emergency release liner</h3>
-
-          <p class="tag body-s">
-            Washable, moisture-wicking comfort pads with emergency cheek release.
-          </p>
-
+          <h3>Robótica</h3>
+          <p class="tag body-s">Integração entre programação, sensores e sistemas físicos para criar soluções interativas.</p>
           <hr class="rule rule--dark">
         </div>
-
         <div class="service-row">
           <span class="idx">06</span>
-
-          <h3>Comms-ready interior</h3>
-
-          <p class="tag body-s">
-            Recessed speaker pockets fit leading Bluetooth communication systems.
-          </p>
-
+          <h3>Projetos Tecnológicos</h3>
+          <p class="tag body-s">Integração prática dos conhecimentos em projetos e experimentos, como o Urbanisa Tech.</p>
           <hr class="rule rule--dark">
         </div>
       </div>
@@ -3638,48 +3392,41 @@ display: none;
       <div class="sectors__head">
         <span class="idx">04</span>
         <h2 class="display display--lg" id="sectors-title">
-          Built for real riders
+          O QUE ESTOU CONSTRUINDO
           <span style="color:var(--coral)">.</span>
         </h2>
         <p class="body-m">
-          Choose by where you ride, not by a wall of nearly identical specs.
-          Every Rideform starts with the same certified protection standard.
+          Explorando inteligência artificial, programação e novas tecnologias para transformar ideias em projetos reais.
         </p>
       </div>
       <aside class="sectors__aside">
-        <span class="micro micro--dim">Included with every helmet</span>
+        <span class="micro micro--dim">FECAP · IA E TECNOLOGIA</span>
         <p class="body-m" style="margin-top:12px">
-          Free delivery
-          <br>
-            30-day size exchange
+          Conhecimento<br>
+          Projetos<br>
+          Evolução constante
         </p>
       </aside>
       <div class="sectors__grid">
         <article class="sector-card">
-          <span class="micro">01 / Street + track</span>
+          <span class="micro">01 / INTELIGÊNCIA ARTIFICIAL</span>
           <div>
-            <h3>Sharp focus at speed.</h3>
-            <p class="body-s">
-              Lightweight carbon composite, spoiler stability, and maximum airflow.
-            </p>
+            <h3>INTELIGÊNCIA<br>EM AÇÃO</h3>
+            <p class="body-s">Inteligência artificial aplicada à criação de soluções e à resolução de problemas reais.</p>
           </div>
         </article>
         <article class="sector-card">
-          <span class="micro">02 / Touring + ADV</span>
+          <span class="micro">02 / PROGRAMAÇÃO</span>
           <div>
-            <h3>Long miles, less fatigue.</h3>
-            <p class="body-s">
-              Quiet sealing, internal sun visor, and tool-free ventilation controls.
-            </p>
+            <h3>DO CÓDIGO<br>À CRIAÇÃO<span style="color:var(--coral)">.</span></h3>
+            <p class="body-s">Desenvolvimento com Python, lógica de programação e construção de aplicações.</p>
           </div>
         </article>
         <article class="sector-card">
-          <span class="micro">03 / Everyday urban</span>
+          <span class="micro">03 / ROBÓTICA E DADOS</span>
           <div>
-            <h3>Protection made effortless.</h3>
-            <p class="body-s">
-              Compact shell, quick-release visor, washable liner, and easy comms fit.
-            </p>
+            <h3>ALÉM<br>DA TELA<span style="color:var(--coral)">.</span></h3>
+            <p class="body-s">Robótica, arquitetura de dados e experimentação com novas tecnologias.</p>
           </div>
         </article>
       </div>
@@ -3690,143 +3437,133 @@ display: none;
     <section class="process">
       <div class="grid12 process__head">
         <h2 class="display display--xl">
-          5 layers
+          POR QUE
 
           <br>
 
-            of defense
+            ESCOLHI IA
 
           <span style="color:var(--coral)">.</span>
         </h2>
 
-        <p class="sub body-m">
-          Protection is a system. Each layer manages a different part of
-          impact, retention, visibility, and comfort.
-        </p>
+        <p class="sub body-m">Minha escolha pela tecnologia, minha curiosidade pelo futuro e minha vontade de criar soluções que façam a diferença.</p>
       </div>
 
       <div class="process__stage">
         <div class="process__track">
           <article class="step">
-            <span class="idx step__idx">Step 01</span>
+            <span class="idx step__idx">Motivo 01</span>
 
             <div class="step__num">01</div>
 
             <div class="step__rule"></div>
 
             <h3>
-              Outer shell spreads impact energy across a wider area.
+              CURIOSIDADE PELO FUTURO
             </h3>
 
             <p class="body-s">
-              Carbon composite and fiberglass layers balance strength with low weight.
+              Sempre quis entender como a tecnologia funciona e como ela pode transformar o mundo.
             </p>
           </article>
 
           <article class="step">
-            <span class="idx step__idx">Step 02</span>
+            <span class="idx step__idx">Motivo 02</span>
 
             <div class="step__num">02</div>
 
             <div class="step__rule"></div>
 
-            <h3>Multi-density EPS slows energy before it reaches you.</h3>
+            <h3>POTENCIAL DE TRANSFORMAÇÃO</h3>
 
             <p class="body-s">
-              Precision-moulded zones respond differently across common impact points.
+              A inteligência artificial permite desenvolver soluções para problemas que antes pareciam difíceis.
             </p>
           </article>
 
           <article class="step">
-            <span class="idx step__idx">Step 03</span>
+            <span class="idx step__idx">Motivo 03</span>
 
             <div class="step__num">03</div>
 
             <div class="step__rule"></div>
 
-            <h3>Four-point retention keeps the helmet correctly positioned.</h3>
+            <h3>CRIATIVIDADE SEM LIMITES</h3>
 
             <p class="body-s">
-              Reinforced webbing and a stainless D-ring create a secure, reliable lock.
+              A possibilidade de transformar ideias em projetos reais é uma das coisas que mais me motivam.
             </p>
           </article>
 
           <article class="step">
-            <span class="idx step__idx">Step 04</span>
+            <span class="idx step__idx">Motivo 04</span>
 
             <div class="step__num">04</div>
 
             <div class="step__rule"></div>
 
             <h3>
-              Wide-view visor keeps hazards visible in your peripheral vision.
+              RESOLUÇÃO DE PROBLEMAS
             </h3>
 
             <p class="body-s">
-              Optical-grade polycarbonate resists scratches, UV, and fog buildup.
+              Quero utilizar a tecnologia para enfrentar desafios reais e encontrar soluções inteligentes.
             </p>
           </article>
 
           <article class="step">
-            <span class="idx step__idx">Step 05</span>
+            <span class="idx step__idx">Motivo 05</span>
 
             <div class="step__num">05</div>
 
             <div class="step__rule"></div>
 
             <h3>
-              Comfort liner stabilizes fit and manages heat for the whole ride.
+              INOVAÇÃO CONSTANTE
             </h3>
 
             <p class="body-s">
-              Moisture-wicking, removable pads are washable and replaceable.
+              A inteligência artificial evolui todos os dias, e quero continuar aprendendo e acompanhando essa evolução.
             </p>
           </article>
 
           <aside class="ready-card">
             <div>
               <h3>
-                Ready to
+                INTELIGÊNCIA
 
                 <br>
 
-                  ride?
+                  ARTIFICIAL
               </h3>
 
               <ul>
                 <li>
                   <span class="dot-sq"></span>
 
-                  ECE 22.06 certified
+                  Curiosidade pelo futuro
                 </li>
 
                 <li>
                   <span class="dot-sq"></span>
 
-                  Free shipping over $250
+                  Potencial de transformação
                 </li>
 
                 <li>
                   <span class="dot-sq"></span>
 
-                  One free size exchange
+                  Criatividade sem limites
                 </li>
 
                 <li>
                   <span class="dot-sq"></span>
 
-                  Five-year warranty
+                  Inovação constante
                 </li>
               </ul>
             </div>
 
-            <a class="ready-card__foot" href="#work">
-              Shop helmets
-
-              <br>
-
-                rideform.co
-            </a>
           </aside>
         </div>
       </div>
@@ -3834,685 +3571,85 @@ display: none;
 
     <!-- ————— 6 · CLIENT STORIES ————— -->
 
-    <section class="stories" data-nav="light">
-      <div class="grid12 stories__head">
-        <h2 class="display display--xl">
-          Rider
-
-          <br>
-
-            stories
-
-          <span style="color:var(--coral)">.</span>
-        </h2>
-
-        <p class="sub body-m">
-          Feedback from riders who chose comfort, quiet, and certified
-          protection without compromise.
-        </p>
-      </div>
-
-      <div class="grid12 stories__field">
-        <article class="tstm tstm--1">
-          <div class="tstm__head">
-            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/c5d97bf3-a2ac-42ba-b14b-69e7b949fe40_3840w.png?width=160&amp;quality=72" alt="Maya Chen" loading="lazy" decoding="async">
-            <div class="who">
-              <b>Maya Chen</b>
-              <span>Commuter · Toronto</span>
-            </div>
-          </div>
-          <hr class="rule rule--coral">
-          <blockquote>
-            “The first helmet I can wear through a full commute without pressure
-            points or wind roar.”
-          </blockquote>
-          <span class="brand">RF-03 Metro / Urban</span>
-        </article>
-
-        <article class="tstm tstm--2">
-          <div class="tstm__head">
-            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/84578b92-b788-45d4-8a7c-2569b7869806_3840w.png?width=160&amp;quality=72" alt="Jon Bell" loading="lazy" decoding="async">
-            <div class="who">
-              <b>Jon Bell</b>
-              <span>Weekend rider · Montreal</span>
-            </div>
-          </div>
-          <hr class="rule rule--coral">
-          <blockquote>
-            “The visor change takes seconds and the airflow is genuinely useful
-            on hot days.”
-          </blockquote>
-          <span class="brand">RF-01 Apex / Street</span>
-        </article>
-
-        <article class="tstm tstm--3">
-          <div class="tstm__head">
-            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/12ff2719-ca76-44ca-903d-df8591b42720_1600w.png?width=160&amp;quality=72" alt="Amara Okafor" loading="lazy" decoding="async">
-            <div class="who">
-              <b>Amara Okafor</b>
-              <span>Touring rider · Vancouver</span>
-            </div>
-          </div>
-          <hr class="rule rule--coral">
-          <blockquote>
-            “Stable on the highway, quiet behind the screen, and easy to live
-            with for eight-hour days.”
-          </blockquote>
-          <span class="brand">RF-02 Atlas / Touring</span>
-        </article>
-
-        <article class="tstm tstm--4">
-          <div class="tstm__head">
-            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/render/image/public/assets/assets/d53b9a4c-19d5-40fc-b4df-db43e0148276_1600w.png?width=160&amp;quality=72" alt="Leo Martin" loading="lazy" decoding="async">
-            <div class="who">
-              <b>Leo Martin</b>
-              <span>Track-day rider · Ottawa</span>
-            </div>
-          </div>
-          <hr class="rule rule--coral">
-          <blockquote>
-            “Light on my neck and planted on the straight. The eye port feels
-            huge in a tuck.”
-          </blockquote>
-          <span class="brand">RF-01 Apex / Track</span>
-        </article>
-
-        <article class="tstm tstm--5">
-          <div class="tstm__head">
-            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/897ef260-7a2d-4bb2-921e-80a9255331c2_320w.webp" alt="Sofia Reyes" loading="lazy" decoding="async">
-            <div class="who">
-              <b>Sofia Reyes</b>
-              <span>New rider · Calgary</span>
-            </div>
-          </div>
-          <hr class="rule rule--coral">
-          <blockquote>
-            “The fit guide was accurate, and the exchange policy removed the
-            stress from buying online.”
-          </blockquote>
-          <span class="brand">RF-03 Metro / Street</span>
-        </article>
-      </div>
-
-      <div class="grid12 metrics">
-        <div class="metric">
-          <div class="metric__num">
-            <span class="cnt" data-count="128">128</span>
-
-            <span class="sfx">k</span>
-          </div>
-
-          <p class="metric__cap body-s">Rider kilometres logged in field tests</p>
-        </div>
-
-        <div class="metric">
-          <div class="metric__num">
-            <span class="cnt" data-count="4.2">4.2</span>
-
-            <span class="sfx">M</span>
-          </div>
-
-          <p class="metric__cap body-s">
-            Simulated impact data points reviewed
-          </p>
-        </div>
-
-        <div class="metric">
-          <div class="metric__num">
-            <span class="cnt" data-count="55">55</span>
-
-            <span class="sfx">+</span>
-          </div>
-
-          <p class="metric__cap body-s">Helmet fit profiles tested</p>
-        </div>
-
-        <div class="metric">
-          <div class="metric__num">
-            <span class="cnt" data-count="435">435</span>
-
-            <span class="sfx">k</span>
-          </div>
-
-          <p class="metric__cap body-s">
-            Wind-tunnel measurements analyzed
-          </p>
-        </div>
-      </div>
-
-      <div class="grid12 metrics metrics--alt">
-        <div class="metric">
-          <div class="metric__num">
-            <span class="cnt" data-count="18">18</span>
-
-            <span class="sfx">k</span>
-          </div>
-
-          <p class="metric__cap body-s">Hours of hot-weather liner testing</p>
-        </div>
-
-        <div class="metric">
-          <div class="metric__num">
-            <span class="cnt" data-count="0.6">0.6</span>
-
-            <span class="sfx">M</span>
-          </div>
-
-          <p class="metric__cap body-s">Visor open-close durability cycles</p>
-        </div>
-
-        <div class="metric">
-          <div class="metric__num">
-            <span class="cnt" data-count="8">8</span>
-
-            <span class="sfx">+</span>
-          </div>
-
-          <p class="metric__cap body-s">Shell and liner colour combinations</p>
-        </div>
-
-        <div class="metric">
-          <div class="metric__num">
-            <span class="cnt" data-count="62">62</span>
-
-            <span class="sfx">k</span>
-          </div>
-
-          <p class="metric__cap body-s">Riders in the Rideform community</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ————— dark result panel ————— -->
-
-    <section class="result">
-      <div class="grid12 result__grid">
-        <div class="result__quote">
-          <span class="qmark" aria-hidden="true">“</span>
-
-          <blockquote aria-label="The right helmet disappears while you ride and stands up when it matters.">
-            <span class="line-mask" aria-hidden="true">
-                <span class="line-inner">The right helmet disappears</span>
-            </span>
-
-            <span class="line-mask" aria-hidden="true">
-                <span class="line-inner">while you ride and stands up</span>
-            </span>
-
-            <span class="line-mask" aria-hidden="true">
-                <span class="line-inner">
-                  <span class="hl">when</span>
-
-            it
-            </span>
-            </span>
-
-            <span class="line-mask" aria-hidden="true">
-                <span class="line-inner">
-                  matters
-
-                  <span class="hl">most</span>
-
-            .
-            </span>
-            </span>
-          </blockquote>
-
-          <div class="result__stats">
-            <div class="metric">
-              <div class="metric__num">
-                1450
-
-                <span class="sfx">g</span>
-              </div>
-
-              <p class="metric__cap body-s">RF-01 Apex claimed weight, size M</p>
-            </div>
-
-            <div class="metric">
-              <div class="metric__num">
-                22.06
-
-                <span class="sfx">ECE</span>
-              </div>
-
-              <p class="metric__cap body-s">Latest European road standard</p>
-            </div>
-          </div>
-        </div>
-
-        <figure class="result__media">
-          <img src="https://images.unsplash.com/photo-1576151238945-e3dfd7239338?w=1400&amp;q=80&amp;auto=format&amp;fit=crop" alt="Rider wearing a full-face helmet" loading="lazy" decoding="async">
-        </figure>
-      </div>
-    </section>
-
     <!-- ————— 7 · PACKAGES ————— -->
-
-    <section class="packages grid12" id="packages" data-nav="light">
-      <div class="packages__head">
-        <h2 class="display display--xl">
-          Choose your
-
-          <br>
-
-            helmet
-
-          <span style="color:var(--coral)">.</span>
-        </h2>
-
-        <p class="sub body-m">
-          One safety standard, three riding priorities. Select your model,
-          choose a size, and ride it for 30 days with one free size exchange.
-        </p>
-      </div>
-
-      <article class="pkg">
-        <div class="pkg__top">
-          <span class="micro">RF-03 Metro</span>
-
-          <span class="micro micro--dim">Urban / Street</span>
-        </div>
-
-        <div class="pkg__price">
-          $349 CAD
-        </div>
-
-        <p class="pkg__desc body-s">
-          Compact, balanced, and easy to live with. Built for daily commutes
-          and weekend city escapes.
-        </p>
-
-        <ul>
-          <li>
-            <span class="dot-sq"></span>
-
-            Fiberglass composite shell
-          </li>
-
-          <li>
-            <span class="dot-sq"></span>
-
-            1380 g claimed weight
-          </li>
-
-          <li>
-            <span class="dot-sq"></span>
-
-            Pinlock-ready clear visor
-          </li>
-
-          <li>
-            <span class="dot-sq"></span>
-
-            Washable comfort liner
-          </li>
-
-          <li>
-            <span class="dot-sq"></span>
-
-            Sizes XS–XXL
-          </li>
-        </ul>
-
-        <div class="pkg__avail">
-          <span class="dot-sq" style="background:var(--ink)"></span>
-
-          In stock — ships in 1–2 days
-        </div>
-
-        <a class="btn add-to-bag" href="#packages" data-product="RF-03 Metro">
-          <span class="sq"></span>
-
-          Add to bag · $349
-        </a>
-      </article>
-
-      <article class="pkg pkg--feat">
-        <div class="pkg__top">
-          <span class="micro">RF-01 Apex</span>
-
-          <span class="micro micro--dim">Track / Street</span>
-        </div>
-
-        <div class="pkg__price">
-          $499 CAD
-        </div>
-
-        <p class="pkg__desc body-s">
-          Our lightest, most aerodynamic shell with a race-focused field of
-          view and high-flow ventilation.
-        </p>
-
-        <ul>
-          <li>
-            <span class="dot-sq"></span>
-
-            Carbon composite shell
-          </li>
-
-          <li>
-            <span class="dot-sq"></span>
-
-            1450 g claimed weight
-          </li>
-
-          <li>
-            <span class="dot-sq"></span>
-
-            Rear aero stabilizer
-          </li>
-
-          <li>
-            <span class="dot-sq"></span>
-
-            Double D-ring retention
-          </li>
-
-          <li>
-            <span class="dot-sq"></span>
-
-            Sizes XS–XXL
-          </li>
-        </ul>
-
-        <div class="pkg__avail">
-          <span class="dot-sq"></span>
-
-          Bestseller — ready to ship
-        </div>
-
-        <a class="btn add-to-bag" href="#packages" data-product="RF-01 Apex">
-          <span class="sq"></span>
-
-          Add to bag · $499
-        </a>
-      </article>
-
-      <article class="pkg">
-        <div class="pkg__top">
-          <span class="micro">RF-02 Atlas</span>
-
-          <span class="micro micro--dim">Touring / ADV</span>
-        </div>
-
-        <div class="pkg__price">
-          $429 CAD
-        </div>
-
-        <p class="pkg__desc body-s">
-          Quiet, adaptable protection for long distances, changing weather,
-          and upright riding positions.
-        </p>
-
-        <ul>
-          <li>
-            <span class="dot-sq"></span>
-
-            Fiberglass composite shell
-          </li>
-
-          <li>
-            <span class="dot-sq"></span>
-
-            Internal drop-down sun visor
-          </li>
-
-          <li>
-            <span class="dot-sq"></span>
-
-            Extended chin ventilation
-          </li>
-
-          <li>
-            <span class="dot-sq"></span>
-
-            Comms-ready interior
-          </li>
-
-          <li>
-            <span class="dot-sq"></span>
-
-            Sizes XS–XXXL
-          </li>
-        </ul>
-
-        <div class="pkg__avail">
-          <span class="dot-sq" style="background:var(--ink)"></span>
-
-          In stock — ships in 1–2 days
-        </div>
-
-        <a class="btn add-to-bag" href="#packages" data-product="RF-02 Atlas">
-          <span class="sq"></span>
-
-          Add to bag · $429
-        </a>
-      </article>
-    </section>
 
     <!-- ————— 8 · FAQ ————— -->
 
     <section class="faq grid12" id="faq" data-nav="light">
       <h2 class="display display--lg">
-        Quick
-
-        <br>
-
-          answers
-
-        <span style="color:var(--coral)">.</span>
+        MEUS PROFESSORES<br>
+        NA FECAP<span style="color:var(--coral)">.</span>
       </h2>
-
-      <ul class="faq__list" id="faqList">
-        <li class="faq-item open">
-          <button aria-expanded="true">
-              How do I choose the right size?
-
-              <span class="plus" aria-hidden="true"></span>
-            </button>
-
-          <div class="faq-item__body">
-            <div class="faq-item__inner">
-              <p>
-                Measure around the widest part of your head, roughly 2.5 cm
-                above your eyebrows. Match the result to our size chart. A new
-                helmet should feel evenly snug with no sharp pressure points.
-              </p>
-            </div>
-          </div>
-        </li>
-
-        <li class="faq-item">
-          <button aria-expanded="false">
-              What does ECE 22.06 mean?
-
-              <span class="plus" aria-hidden="true"></span>
-            </button>
-
-          <div class="faq-item__body">
-            <div class="faq-item__inner">
-              <p>
-                It is the current European motorcycle helmet standard, adding
-                more impact locations, rotational testing, and accessory tests
-                compared with the earlier 22.05 standard.
-              </p>
-            </div>
-          </div>
-        </li>
-
-        <li class="faq-item">
-          <button aria-expanded="false">
-              Can I exchange the helmet if the fit is wrong?
-
-              <span class="plus" aria-hidden="true"></span>
-            </button>
-
-          <div class="faq-item__body">
-            <div class="faq-item__inner">
-              <p>
-                Yes. You have 30 days from delivery for one complimentary size
-                exchange, provided the helmet is unworn on the road and all
-                labels, film, packaging, and accessories are intact.
-              </p>
-            </div>
-          </div>
-        </li>
-
-        <li class="faq-item">
-          <button aria-expanded="false">
-              Which model is quietest for highway riding?
-
-              <span class="plus" aria-hidden="true"></span>
-            </button>
-
-          <div class="faq-item__body">
-            <div class="faq-item__inner">
-              <p>
-                The RF-02 Atlas is tuned for upright touring positions, with a
-                close neck roll and sealed visor mechanism to reduce wind noise.
-                Always wear hearing protection on sustained highway rides.
-              </p>
-            </div>
-          </div>
-        </li>
-
-        <li class="faq-item">
-          <button aria-expanded="false">
-              Are tinted visors included?
-
-              <span class="plus" aria-hidden="true"></span>
-            </button>
-
-          <div class="faq-item__body">
-            <div class="faq-item__inner">
-              <p>
-                Every helmet includes a clear, Pinlock-ready visor. Road-legal
-                light-smoke and dark-smoke visors are available separately;
-                local rules on tint and night use vary.
-              </p>
-            </div>
-          </div>
-        </li>
-
-        <li class="faq-item">
-          <button aria-expanded="false">
-              When should I replace my helmet?
-
-              <span class="plus" aria-hidden="true"></span>
-            </button>
-
-          <div class="faq-item__body">
-            <div class="faq-item__inner">
-              <p>
-                Replace it immediately after a significant impact, even when
-                damage is not visible. Otherwise, follow the five-year service
-                life from first use and inspect the shell and liner regularly.
-              </p>
-            </div>
-          </div>
-        </li>
-
-        <li class="faq-item">
-          <button aria-expanded="false">
-              Do you ship outside Canada?
-
-              <span class="plus" aria-hidden="true"></span>
-            </button>
-
-          <div class="faq-item__body">
-            <div class="faq-item__inner">
-              <p>
-                Yes. We ship to the United States and selected international
-                destinations. Duties, taxes, and certification requirements
-                are shown at checkout where applicable.
-              </p>
-            </div>
-          </div>
-        </li>
-      </ul>
     </section>
 
     <!-- ————— 9 · JOURNAL ————— -->
 
     <section class="journal" id="notes" data-nav="light">
       <div class="grid12 journal__head">
-        Practical notes on fit, safety standards, care, and better days in the saddle.
+        Professores da FECAP
       </div>
 
       <div class="grid12 journal__row">
         <a class="post" href="#notes">
           <div class="post__media post__media--mono">
-            <img src="https://images.unsplash.com/photo-1587000258561-0974c704454b?w=1000&amp;q=78&amp;auto=format&amp;fit=crop" alt="Motorcycle helmet detail" loading="lazy" decoding="async">
+            <img src="../professor-rafael-rossetti.png" alt="Retrato do professor Rafael Rossetti" loading="lazy" decoding="async">
           </div>
 
           <div class="post__line"></div>
 
-          <span class="micro micro--dim">Fit — Jun 2026</span>
+          <span class="micro micro--dim">FECAP · DOCENTE</span>
 
           <h3>
-            The five-minute helmet fit check every rider should know.
+            Rafael Rossetti
           </h3>
 
-          <p>
-            Measure correctly, identify pressure points, and check retention
-            before your first ride.
-          </p>
+          <p>Introdução à Inteligência Artificial e Soluções de IA para Negócios.</p>
         </a>
 
         <a class="post" href="#notes">
           <div class="post__media">
-            <img src="https://images.unsplash.com/photo-1632278819098-51dfc937b5f3?w=1000&amp;q=78&amp;auto=format&amp;fit=crop" alt="Rider in a full-face helmet" loading="lazy" decoding="async">
+            <img src="../professor-alexandre-neves.png" alt="Retrato do professor Alexandre Neves" loading="lazy" decoding="async">
           </div>
 
           <div class="post__line"></div>
 
-          <span class="micro micro--dim">Safety — May 2026</span>
+          <span class="micro micro--dim">FECAP · DOCENTE</span>
 
-          <h3>ECE 22.06, DOT, and Snell: what each label actually tells you.</h3>
+          <h3>Alexandre Neves</h3>
 
-          <p>
-            A plain-language guide to test methods, intended use, and choosing
-            the right certification.
-          </p>
+          <p>Princípios de Robótica e IoT.</p>
         </a>
 
         <a class="post" href="#notes">
           <div class="post__media post__media--red">
-            <img src="https://images.unsplash.com/photo-1644435234001-ceb5f78330f1?w=1000&amp;q=78&amp;auto=format&amp;fit=crop" alt="Helmet on a motorcycle" loading="lazy" decoding="async">
+            <img src="../professor-herbert-bratefixe.png" alt="Retrato do professor Herbert Bratefixe" loading="lazy" decoding="async">
           </div>
 
           <div class="post__line"></div>
 
-          <span class="micro micro--dim">Care — Apr 2026</span>
+          <span class="micro micro--dim">FECAP · DOCENTE</span>
 
           <h3>
-            How to clean a visor and liner without shortening their life.
+            Herbert Bratefixe
           </h3>
 
-          <p>
-            The safe products, drying method, and small habits that keep your
-            helmet fresh.
-          </p>
+          <p>Estrutura de Dados.</p>
         </a>
 
         <a class="post" href="#notes">
           <div class="post__media">
-            <img src="https://images.unsplash.com/photo-1771791341559-bc0aa19126c1?w=1000&amp;q=78&amp;auto=format&amp;fit=crop" alt="Rider holding a motorcycle helmet" loading="lazy" decoding="async">
+            <img src="../professor-aguinaldo-alberto.png" alt="Retrato do professor Aguinaldo Alberto" loading="lazy" decoding="async">
           </div>
 
           <div class="post__line"></div>
 
-          <span class="micro micro--dim">Touring — Mar 2026</span>
+          <span class="micro micro--dim">FECAP · DOCENTE</span>
 
           <h3>
-            Building a quieter, cooler setup for long-distance riding.
+            Aguinaldo Alberto
           </h3>
 
-          <p>
-            Fit, neck sealing, ventilation, earplugs, and comms placement for
-            long days.
-          </p>
+          <p>Python.</p>
         </a>
       </div>
     </section>
@@ -4523,207 +3660,107 @@ display: none;
       <div class="cta__left">
         <div class="intro__sticky">
           <div class="intro__portrait">
-            <img src="https://images.unsplash.com/photo-1771791341559-bc0aa19126c1?w=1000&amp;q=80&amp;auto=format&amp;fit=crop" alt="Rider holding a motorcycle helmet" loading="lazy" decoding="async">
+            <img src="../gabriel-contact-urbanisa.png" alt="Estudante trabalhando com tecnologia e inteligência artificial" style="object-position:68% center" loading="lazy" decoding="async">
           </div>
 
           <div class="intro__namebar">
-            <span>RIDEFORM Fit Team</span>
-
-            <span class="dot-sq" title="Available"></span>
+            <span>Gabriel Mourisco</span>
+            <span class="dot-sq" aria-hidden="true"></span>
           </div>
 
           <div class="intro__meta">
-            <span>
-                <b>Fit reply</b>
-
-                — within one business day
-              </span>
-
-            <span>
-                <b>Shipping</b>
-
-                — Canada / USA / Worldwide
-              </span>
-
-            <span>
-                <b>Exchange</b>
-
-                — 30-day size guarantee
-              </span>
+            <span><b>Área</b> — Estudante de Inteligência Artificial</span>
+            <span><b>Instituição</b> — FECAP</span>
           </div>
         </div>
       </div>
 
       <div class="cta__right">
-        <h2 class="display display--xl" aria-label="Find your exact fit with us.">
-          <span class="line-mask">
-              <span class="line-inner">Find your</span>
-          </span>
-
-          <span class="line-mask">
-              <span class="line-inner">exact fit</span>
-          </span>
-
-          <span class="line-mask">
-              <span class="line-inner">
-                with us
-
-                <span style="color:var(--coral)">.</span>
-          </span>
-          </span>
+        <h2 class="display display--xl" aria-label="Entre em contato comigo.">
+          <span class="line-mask"><span class="line-inner">Entre em</span></span>
+          <span class="line-mask"><span class="line-inner">contato</span></span>
+          <span class="line-mask"><span class="line-inner">comigo<span style="color:var(--coral)">.</span></span></span>
         </h2>
 
         <p class="lead body-m">
-          Send your head measurement, current helmet, and riding style. Our fit
-          team will recommend a model and size before you order.
+          Gostou dos meus projetos ou quer conversar sobre tecnologia, inteligência artificial e novas ideias? Entre em contato comigo.
         </p>
 
-        <form class="cta-form" onsubmit="return false" aria-label="Helmet fit consultation">
+        <div class="cta-form" aria-label="Informações de contato">
           <div class="frow">
             <div class="fld">
-              <label for="f-name">Your name</label>
-
-              <input id="f-name" name="name" placeholder="Jane Doe">
-
+              <label for="contact-phone">Telefone / WhatsApp</label>
+              <input id="contact-phone" value="11 9133243" readonly aria-readonly="true">
               <hr class="rule rule--dark">
             </div>
 
             <div class="fld">
-              <label for="f-email">Email</label>
-
-              <input id="f-email" name="email" type="email" placeholder="jane@example.com">
-
+              <label for="contact-email">E-mail</label>
+              <input id="contact-email" value="gabriel@fecap.br" readonly aria-readonly="true">
               <hr class="rule rule--dark">
             </div>
-          </div>
-
-          <div class="frow">
-            <div class="fld">
-              <label for="f-budget">Head circumference</label>
-
-              <input id="f-budget" name="measurement" placeholder="e.g. 58 cm">
-
-              <hr class="rule rule--dark">
-            </div>
-
-            <div class="fld">
-              <label for="f-launch">Main riding style</label>
-
-              <input id="f-launch" name="riding" placeholder="Street, touring, track…">
-
-              <hr class="rule rule--dark">
-            </div>
-          </div>
-
-          <div class="fld">
-            <label for="f-msg">Current helmet and fit notes</label>
-
-            <textarea id="f-msg" name="message" rows="3" placeholder="Brand, model, size, and any pressure points…"></textarea>
-
-            <hr class="rule rule--dark">
           </div>
 
           <div class="cta-submit">
-            <button class="main" type="submit">
-                Get my fit recommendation
-              </button>
-
-            <span class="arr" aria-hidden="true">→</span>
+            <a class="main" href="https://wa.me/" target="_blank" rel="noopener noreferrer">Entre em contato</a>
+            <span class="arr" aria-hidden="true">↗</span>
           </div>
-        </form>
+        </div>
       </div>
     </section>
 
     <footer class="footer">
       <div class="grid12 footer__cols">
         <div class="footer__col">
-          <h4>
-            Certified motorcycle helmets shaped for protection, quiet, and fit.
-          </h4>
-
-          <span>
-              Designed in Toronto for street, track, touring, and everyday riders.
-            </span>
+          <h4>Apresentação</h4>
+          <span>Gabriel Mourisco</span>
+          <span>Estudante de Inteligência Artificial</span>
+          <span>FECAP</span>
         </div>
 
         <div class="footer__col">
-          <h4>Shop</h4>
-
-          <a href="#packages">RF-01 Apex</a>
-
-          <a href="#packages">RF-02 Atlas</a>
-
-          <a href="#packages">RF-03 Metro</a>
-
-          <a href="#contact">Fit guide</a>
+          <h4>Navegação</h4>
+          <a href="#top">Início</a>
+          <a href="#about">Sobre mim</a>
+          <a href="#work">Projetos</a>
+          <a href="#services">Tecnologias</a>
+          <a href="#contact">Contato</a>
         </div>
 
         <div class="footer__col">
-          <h4>Site</h4>
-
-          <a href="#about">Our standard</a>
-
-          <a href="#work">Helmets</a>
-
-          <a href="#notes">Rider guide</a>
-
-          <a href="#faq">FAQ</a>
+          <h4>Redes sociais</h4>
+          <span>Instagram</span>
+          <span>GitHub</span>
+          <span>LinkedIn</span>
         </div>
 
         <div class="footer__col">
-          <h4>Social</h4>
-
-          <a href="#top">Instagram</a>
-
-          <a href="#top">X / Twitter</a>
-
-          <a href="#top">YouTube</a>
-
-          <a href="#top">LinkedIn</a>
+          <h4>Projetos</h4>
+          <a href="#work">Urbanisa Tech</a>
+          <a href="#work">Meus projetos</a>
+          <span>GitHub</span>
         </div>
 
         <div class="footer__col">
-          <h4>Legal</h4>
-
-          <a href="#top">Imprint</a>
-
-          <a href="#top">Privacy</a>
-
-          <a href="#top">Terms</a>
+          <h4>Contato</h4>
+          <a href="#contact">Entre em contato</a>
+          <a href="mailto:gabriel@fecap.br">E-mail</a>
+          <a href="https://wa.me/" target="_blank" rel="noopener noreferrer">WhatsApp</a>
         </div>
 
-        <div class="footer__col">
-          <h4>Support</h4>
-
-          <span>Toronto (ET)</span>
-
-          <span style="display:flex;gap:8px;align-items:center">
-              <span class="dot-sq"></span>
-
-          Fit team online
-          </span>
-        </div>
-
-        <a class="footer__email" href="mailto:fit@rideform.co">
-          FIT@RIDEFORM.CO
-
-          <span class="dot-sq"></span>
+        <a class="footer__email" href="mailto:gabriel@fecap.br" aria-label="Enviar e-mail para Gabriel Mourisco">
+          GABRIEL@FECAP.BR
+          <span class="dot-sq" aria-hidden="true"></span>
         </a>
 
         <div class="footer__legal" style="grid-column:1 / -1">
-          <span>© 2026 RIDEFORM® — All rights reserved</span>
-
-          <span>Designed and tested in Toronto</span>
-
-          <span>No cookies, no tracking</span>
+          <span>© 2026 GABRIEL MOURISCO — TODOS OS DIREITOS RESERVADOS</span>
+          <span>DESENVOLVIDO COM CRIATIVIDADE E TECNOLOGIA</span>
+          <span>Portfólio pessoal · FECAP</span>
         </div>
       </div>
 
-      <div class="footer__wordmark" aria-hidden="true">
-        RIDEFORM
-
-        <sup>®</sup>
-      </div>
+      <div class="footer__wordmark" aria-hidden="true">GABRIEL<br>MOURISCO.</div>
     </footer>
   </main>
 
@@ -4782,7 +3819,7 @@ display: none;
 
           .to(loadState, {
 
-            value: 100,
+            value: 777,
 
             duration: 1.25,
 
@@ -4834,7 +3871,7 @@ display: none;
 
         function onScroll() {
 
-          badge.classList.toggle("is-on", window.scrollY > window.innerHeight * 1.5);
+          if (badge) badge.classList.toggle("is-on", window.scrollY > window.innerHeight * 1.5);
 
           var max = document.documentElement.scrollHeight - window.innerHeight;
 
@@ -4845,40 +3882,6 @@ display: none;
         window.addEventListener("scroll", onScroll, { passive: true });
 
         onScroll();
-
-        // FAQ accordion (single open)
-
-        var items = Array.prototype.slice.call(
-
-          document.querySelectorAll("#faqList .faq-item")
-
-        );
-
-        items.forEach(function (item) {
-
-          item.querySelector("button").addEventListener("click", function () {
-
-            var isOpen = item.classList.contains("open");
-
-            items.forEach(function (it) {
-
-              it.classList.remove("open");
-
-              it.querySelector("button").setAttribute("aria-expanded", "false");
-
-            });
-
-            if (!isOpen) {
-
-              item.classList.add("open");
-
-              item.querySelector("button").setAttribute("aria-expanded", "true");
-
-            }
-
-          });
-
-        });
 
         /* ————— tactile pointer interactions ————— */
 
@@ -5479,82 +4482,6 @@ display: none;
 
         /* ————— 6 · client stories ————— */
 
-        gsap.utils.toArray(".tstm").forEach(function (el, i) {
-
-          var side = i % 2 ? 1 : -1;
-
-          gsap.fromTo(
-
-            el,
-
-            { x: side * (70 + i * 10), y: 72, rotationY: side * 12, rotationZ: side * 2, scale: 0.9, autoAlpha: 0.12 },
-
-            {
-
-              x: 0,
-
-              y: 0,
-
-              rotationY: 0,
-
-              rotationZ: 0,
-
-              scale: 1,
-
-              autoAlpha: 1,
-
-              ease: "none",
-
-              scrollTrigger: { trigger: el, start: "top 94%", end: "top 50%", scrub: true },
-
-            }
-
-          );
-
-          gsap.fromTo(
-
-            el.querySelector(".rule--coral"),
-
-            { scaleX: 0 },
-
-            {
-
-              scaleX: 1,
-
-              duration: 0.8,
-
-              ease: "power3.out",
-
-              delay: 0.25,
-
-              scrollTrigger: { trigger: el, start: "top 86%", once: true },
-
-            }
-
-          );
-
-          gsap.fromTo(
-
-            el.querySelector("img"),
-
-            { scale: 0.92 },
-
-            {
-
-              scale: 1,
-
-              duration: 1,
-
-              ease: "power3.out",
-
-              scrollTrigger: { trigger: el, start: "top 86%", once: true },
-
-            }
-
-          );
-
-        });
-
         // metrics count up once and settle sharply
 
         gsap.utils.toArray(".cnt").forEach(function (el) {
@@ -5577,7 +4504,8 @@ display: none;
 
             onUpdate: function () {
 
-              el.textContent = obj.v.toFixed(decimals);
+              var value = obj.v.toFixed(decimals);
+              el.textContent = el.dataset.pad ? value.padStart(parseInt(el.dataset.pad, 10), "0") : value;
 
             },
 
@@ -5603,121 +4531,7 @@ display: none;
 
         // result panel: quote lines mask in, portrait wipes up + parallax
 
-        gsap.fromTo(
-
-          ".result__quote .line-inner",
-
-          { yPercent: 110 },
-
-          {
-
-            yPercent: 0,
-
-            duration: 1,
-
-            ease: "power3.out",
-
-            stagger: 0.09,
-
-            scrollTrigger: { trigger: ".result", start: "top 62%", once: true },
-
-          }
-
-        );
-
-        gsap.fromTo(
-
-          ".result__media",
-
-          { clipPath: "inset(100% 0 0 0)" },
-
-          {
-
-            clipPath: "inset(0% 0 0 0)",
-
-            duration: 1.2,
-
-            ease: "power3.out",
-
-            scrollTrigger: { trigger: ".result", start: "top 62%", once: true },
-
-          }
-
-        );
-
-        gsap.fromTo(
-
-          ".result__media img",
-
-          { yPercent: 12, scale: 1.1 },
-
-          {
-
-            yPercent: 0,
-
-            scale: 1,
-
-            ease: "none",
-
-            scrollTrigger: { trigger: ".result", start: "top bottom", end: "bottom top", scrub: true },
-
-          }
-
-        );
-
         /* ————— 7 · packages ————— */
-
-        gsap.utils.toArray(".pkg").forEach(function (el, i) {
-
-          gsap.fromTo(
-
-            el,
-
-            { y: 90 + i * 34, scale: 0.94, clipPath: i % 2 ? "inset(0 0 100% 0)" : "inset(100% 0 0 0)" },
-
-            {
-
-              y: 0,
-
-              scale: 1,
-
-              clipPath: "inset(0% 0% 0% 0%)",
-
-              ease: "none",
-
-              scrollTrigger: { trigger: el, start: "top 96%", end: "top 52%", scrub: true },
-
-            }
-
-          );
-
-          gsap.fromTo(
-
-            el.querySelectorAll("li"),
-
-            { autoAlpha: 0, y: 14 },
-
-            {
-
-              autoAlpha: 1,
-
-              y: 0,
-
-              duration: 0.7,
-
-              ease: "power3.out",
-
-              stagger: 0.05,
-
-              scrollTrigger: { trigger: el, start: "top 74%", once: true },
-
-            }
-
-          );
-
-        });
-
-        /* ————— 9 · journal ————— */
 
         gsap.utils.toArray(".post").forEach(function (el, i) {
 
@@ -5952,8 +4766,6 @@ display: none;
 
   <script>
     (function () {
-        var count = 0;
-        var countEl = document.getElementById("bagCount");
         var toast;
 
         function announce(message) {
@@ -5989,23 +4801,7 @@ display: none;
           }, 2200);
         }
 
-        document.querySelectorAll(".add-to-bag").forEach(function (button) {
-          button.addEventListener("click", function (event) {
-            event.preventDefault();
-            count += 1;
-            countEl.textContent = count;
-            announce(button.dataset.product + " added to your bag");
-          });
-        });
 
-        var fitForm = document.querySelector(".cta-form");
-        if (fitForm) {
-          fitForm.addEventListener("submit", function (event) {
-            event.preventDefault();
-            announce("Fit request received · we’ll reply within one business day");
-            fitForm.reset();
-          });
-        }
 
         var heroStage = document.querySelector(".hero__stage");
         var heroMedia = heroStage && heroStage.querySelector(".hero__media");
